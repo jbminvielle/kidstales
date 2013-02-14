@@ -1,76 +1,108 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Kidstales</title>
  
-  <head>
-    <meta charset="utf-8">
-    <title>Kidstales</title>
+		<!-- meta -->
+		<meta name="description" content="">
  
-    <!-- meta -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+		<!-- mon icon -->
+		<!--- <link rel="shortcut icon" href="favicon.ico"> --->
  
-    <!-- mon icon -->
-    <!--- <link rel="shortcut icon" href="favicon.ico"> --->
+		<!-- mon template.css --> 
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="public/css/reset.css" type="text/css" media="screen"  />
+		<link rel="stylesheet" href="public/css/travelr.css" type="text/css" media="screen"  />
+
+		<script type="text/javascript" src="public/js/lib/modernizr-2.5.3.min.js"></script>
+		<script type="text/javascript" src="public/js/lib/jquery.easing.min.js"></script>
+		<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<script type="text/javascript" src="public/js/travelr.js"></script>
+	</head>
  
-    <!-- mon template.css -->
-    <link rel="stylesheet" href="main.css" type="text/css" media="screen">
  
-  </head>
+	<body>
+
+		<header>
+			<!-- menu du haut -->
+			<nav>
+				<ul>
+					<li><a href="index" title="Page d'accueil">Kid's Tale</a></li>
+					<li><a href="explore" title="Explorer">Explorer</a></li>
+					<li><a href="register" title="S'insire à l'outil">Je suis parent, animateur, responsable...</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<section id="favoritePlaces">
+			<h1>Les endroits qu'on préfère</h1>
+
+			<figure>
+				<img src="medias/montreuilbellay.png" alt="Montreuil-Bellay" />
+				<figcaption>Montreuil-Bellay</figcaption>
+			</figure>
+
+			<figure>
+				<img src="medias/avignon.png" alt="Avignon" />
+				<figcaption>Avignon</figcaption>
+			</figure>
+
+			<figure>
+				<img src="medias/cantal.png" alt="Le Cantal" />
+				<figcaption>Le Cantal</figcaption>
+			</figure>
+			
+			<footer>
+				<p>Sélection de destinations<br />
+					<a href="howweelect">Savoir comment</a>
+				</p>
+			</footer>
+		</section>
  
- 
-  <body>
- 
-    <header>
-      <!-- menu du haut -->
-      <nav>
-        <ul>
-          <li><a href="mon-url" title="titre-du-lien">nom de mon lien</a></li>
-          <li><a href="mon-url" title="titre-du-lien">nom de mon lien</a></li>
-          <li><a href="mon-url" title="titre-du-lien">nom de mon lien</a></li>
-        </ul>
-      </nav>
-    </header>
- 
-    <!-- contenu de ma page -->
-    <div>
-      <!-- article n°1 -->
-      <article>
-        <h1>titre de mon article</h1>
-        <p>texte de mon article</p>
-        <section>
-          <h2>sous-titre mon article</h2>
-          <p>texte de mon sous-titre</p>
-          <figure> 
-            <a href="mon-url"><img src="url-de-mon-image" alt="nom-de-mon-image"></a> 
-          </figure> 
-        </section>
-      </article>
- 
-      <!-- article n°2 -->
-      <article>
-        <h1>titre de mon article</h1>
-        <p>texte de mon article</p>
-        <section>
-          <h2>sous-titre mon article</h2>
-          <p>texte de mon sous-titre</p>
-          <figure> 
-            <a href="mon-url"><img src="url-de-mon-image" alt="nom-de-mon-image"></a> 
-          </figure> 
-        </section>
-      </article>
-    </div>
- 
-    <footer>
-      <!-- menu du bas -->
-      <nav>
-        <ul>
-          <li><a href="mon-url" title="titre-du-lien">nom de mon lien</a></li>
-          <li><a href="mon-url" title="titre-du-lien">nom de mon lien</a></li>
-          <li><a href="mon-url" title="titre-du-lien">nom de mon lien</a></li>
-        </ul>
-      </nav>
-    </footer>
- 
-  </body>
+		<section id="explanations">
+			<h1>Kid's Tales</h1>
+			<h2>Qu'est-ce que c'est ?</h2>
+
+			<h3>Kids’ Tales est le carnet de voyage réservé aux enfants.</h3>
+			<p>En colonie de vacances, en classe verte ou simplement avec leurs parents, les enfants adorent raconter leur découverte du vaste monde. À l'ère du numérique, ils peuvent saisir la chance d’utiliser leur imagination en photographiant, en dessinant, en écrivant toute sorte d’œuvres d’art.</p>
+			<p>Potentiel de Kids’ Tales</p>
+
+			<article id="kids">
+				<h4>Les enfants</h4>
+				<p>Explore le monde sur ton ordinateur grace à d’autres enfants de ton âge !<p>
+				<p>Envoie des message à tes parents quand tu es loin d’eux.</p>
+				<nav><a href="explore">Découvre le monde en cliquant ici</a></nav>
+			</article>
+
+			<article id="parents">
+				<h4>Les parents</h4>
+				<p>Trouvez facilement des idées d’activités qui marchent bien pour vos enfants.</p>
+				<p>Recevez des messages multimédias quand ils sont en voyage sans vous.</p>
+				<p>Libérez leur créativité même quand ils partent avec vous.</p>
+				<nav><a href="register">Inscrire vos enfants</a></nav>
+			</article>
+
+			<article id="structures">
+				<h4>Les accueils collectifs de mineurs</h4>
+				<p>Trouvez facilement des idées d’activités où que vous vous organisiez une sortie.</p>
+				<p>Ayez facilement des retours concrets sur vos activiés.</p>
+				<nav><a href="register">Inscrire un groupe</a></nav>
+			</article>
+
+			<p><strong>Lire nos dispositions pour la sécurité des enfants</strong></p>
+		</section>
+
+		<footer>
+			<p>Réalisation : étudiants d’Hétic, P2015 | <strong>Dispositions concernant la sécurité des enfants</strong> | <a href="http://facebook.com/kidstales">Facebook</a> | <a href="http://twitter.com/kidstales">Twitter</a></p>
+		</footer>
+
+	</body>
  
 </html>
