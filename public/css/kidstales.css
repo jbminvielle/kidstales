@@ -62,6 +62,9 @@ header>nav {
 	height: 165px; width: 100%;
 	box-shadow: inset 0px 0px 8px #000;
 	margin-left: -20px;
+
+	position: relative;
+	z-index: 2
 }
 
 header>nav>ul {
@@ -75,6 +78,9 @@ header>nav>ul li {
 	text-transform: uppercase;
 
 	color: #ffefd3;
+
+	position: relative;
+	z-index: 1
 }
 
 header>nav>ul li>h1 {
@@ -299,4 +305,109 @@ body>footer>p {
 
 body {
 	margin-bottom: 40px;
+}
+
+@media screen and (max-width: 360px) {
+	section {
+		border: none;
+		padding: 0;
+	}
+	#main {
+		width: 100%!important;
+	}
+
+	header>nav>ul>a:nth-child(3)>li {
+		right: 15px!important;
+	}
+
+	header { margin-bottom: 0!important;}
+}
+
+
+@media screen and (max-width: 490px) {
+	
+	header>nav>ul>a:nth-child(2) {
+		display: none;
+	}
+
+	nav {
+		padding: 0 20px !important;
+	}
+}
+
+@media screen and (max-width: 630px) {
+	#main {
+		width: 90%;
+	}
+	section#explanations {
+		width: 100%;
+	}
+	section#explanations>div {
+		padding: 10px;
+		padding-top: 40px;
+		padding-bottom: 10px;
+	}
+
+	article {
+		margin: auto;
+		width: 100px;
+	}
+}
+
+@media screen and (max-width: 960px) {
+
+	header {
+		margin-top: 0px;
+		height: 82px;
+	}
+
+	header>nav {
+		height: 82px; width: 100%;
+		margin-left: -20px;
+	}
+
+
+	header>nav>ul li>h1 {
+		font-size: 65px;
+		line-height: 40px;
+		width: 176px;
+		top: 9px;
+		left: -2px;
+		letter-spacing: -3px;
+	}
+
+
+	header>nav>ul>a:nth-child(2)>li, header>nav>ul>a:nth-child(3)>li {
+		width: 128px; height: 62.5px;
+		margin-left: 5px;
+
+		border: 3.5px solid;
+		border-radius: 10px;
+
+		top: 7px;
+	}
+
+	header>nav>ul>a:nth-child(2)>li {
+		background-size: 100%;
+		right: 168.5px;
+	}
+
+
+	header>nav>ul>a:nth-child(3)>li {
+		right: 25px;
+		font-size: 15px;
+		padding-top: 17.5px; height: 45px;
+	}
+
+	#main {
+		margin-left: 0px!important;
+	}
+
+	section#favoritePlaces {
+		position: inherit;
+		margin: auto;
+		margin-top: 40px;
+		}
+	}
+
 }
