@@ -19,12 +19,12 @@
 		<!-- mon template.css --> 
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="public/css/reset.css" type="text/css" media="screen"  />
-		<link rel="stylesheet" href="public/css/travelr.css" type="text/css" media="screen"  />
+		<link rel="stylesheet" href="public/css/kidstales.css" type="text/css" media="screen"  />
 
 		<script type="text/javascript" src="public/js/lib/modernizr-2.5.3.min.js"></script>
 		<script type="text/javascript" src="public/js/lib/jquery.easing.min.js"></script>
 		<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-		<script type="text/javascript" src="public/js/travelr.js"></script>
+		<script type="text/javascript" src="public/js/kidstales.js"></script>
 	</head>
  
  
@@ -34,69 +34,74 @@
 			<!-- menu du haut -->
 			<nav>
 				<ul>
-					<li><a href="index" title="Page d'accueil">Kid's Tale</a></li>
-					<li><a href="explore" title="Explorer">Explorer</a></li>
-					<li><a href="register" title="S'insire à l'outil">Je suis parent, animateur, responsable...</a></li>
+					<li><h1><a href="index" title="Page d'accueil">Kids' <span>Tales</span></a></h1></li>
+					<a href="explore" title="Explorer"><li>Explorer</li></a>
+					<a href="register" title="S'inscrire à l'outil"><li>Inscription gratuite</li></a>
 				</ul>
 			</nav>
 		</header>
+ 		
+ 		<div id="main">
+			<section id="explanations">
+				<div>
+					<h1>Kids' <span>Tales</span></h1>
+					<h2>Qu'est-ce que c'est ?</h2>
+
+					<h3>Kids’ Tales est le carnet de voyage réservé aux enfants.</h3>
+					<p>En colonie de vacances, en classe verte ou simplement avec leurs parents, les enfants adorent raconter leur découverte du vaste monde. À l'ère du numérique, ils peuvent saisir la chance d’utiliser leur imagination en photographiant, en dessinant, en écrivant toute sorte d’œuvres d’art.</p>
+
+					<article id="kids">
+						<h4>Les enfants</h4>
+						<p>Explore le monde sur ton ordinateur grace à d’autres enfants de ton âge !<p>
+						<p>Envoie des message à tes parents quand tu es loin d’eux.</p>
+						<nav><button href="explore">Découvre le monde en cliquant ici</button></nav>
+					</article>
+
+					<article id="parents">
+						<h4>Les parents</h4>
+						<p>Trouvez facilement des idées d’activités qui marchent bien pour vos enfants.</p>
+						<p>Recevez des messages multimédias quand ils sont en voyage sans vous.</p>
+						<p>Libérez leur créativité même quand ils partent avec vous.</p>
+						<nav><button href="register">Inscrire vos enfants</button></nav>
+					</article>
+
+					<article id="structures">
+						<h4>Les accueils collectifs de mineurs</h4>
+						<p>Trouvez facilement des idées d’activités où que vous vous organisiez une sortie.</p>
+						<p>Ayez facilement des retours concrets sur vos activiés.</p>
+						<nav><button href="register">Inscrire un groupe</button></nav>
+					</article>
+
+					<p><strong>Lire nos dispositions pour la sécurité des enfants</strong></p>
+				<div>
+			</section>
+		</div>
 
 		<section id="favoritePlaces">
-			<h1>Les endroits qu'on préfère</h1>
+			<div>
+				<h1>Les endroits qu'on préfère</h1>
 
-			<figure>
-				<img src="medias/montreuilbellay.png" alt="Montreuil-Bellay" />
-				<figcaption>Montreuil-Bellay</figcaption>
-			</figure>
+				<figure>
+					<img src="public/images/montreuilbellay.jpg" alt="Montreuil-Bellay" />
+					<figcaption>Montreuil-Bellay</figcaption>
+				</figure>
 
-			<figure>
-				<img src="medias/avignon.png" alt="Avignon" />
-				<figcaption>Avignon</figcaption>
-			</figure>
+				<figure>
+					<img src="public/images/avignon.jpg" alt="Avignon" />
+					<figcaption>Avignon</figcaption>
+				</figure>
 
-			<figure>
-				<img src="medias/cantal.png" alt="Le Cantal" />
-				<figcaption>Le Cantal</figcaption>
-			</figure>
-			
-			<footer>
-				<p>Sélection de destinations<br />
-					<a href="howweelect">Savoir comment</a>
-				</p>
-			</footer>
-		</section>
- 
-		<section id="explanations">
-			<h1>Kid's Tales</h1>
-			<h2>Qu'est-ce que c'est ?</h2>
-
-			<h3>Kids’ Tales est le carnet de voyage réservé aux enfants.</h3>
-			<p>En colonie de vacances, en classe verte ou simplement avec leurs parents, les enfants adorent raconter leur découverte du vaste monde. À l'ère du numérique, ils peuvent saisir la chance d’utiliser leur imagination en photographiant, en dessinant, en écrivant toute sorte d’œuvres d’art.</p>
-			<p>Potentiel de Kids’ Tales</p>
-
-			<article id="kids">
-				<h4>Les enfants</h4>
-				<p>Explore le monde sur ton ordinateur grace à d’autres enfants de ton âge !<p>
-				<p>Envoie des message à tes parents quand tu es loin d’eux.</p>
-				<nav><a href="explore">Découvre le monde en cliquant ici</a></nav>
-			</article>
-
-			<article id="parents">
-				<h4>Les parents</h4>
-				<p>Trouvez facilement des idées d’activités qui marchent bien pour vos enfants.</p>
-				<p>Recevez des messages multimédias quand ils sont en voyage sans vous.</p>
-				<p>Libérez leur créativité même quand ils partent avec vous.</p>
-				<nav><a href="register">Inscrire vos enfants</a></nav>
-			</article>
-
-			<article id="structures">
-				<h4>Les accueils collectifs de mineurs</h4>
-				<p>Trouvez facilement des idées d’activités où que vous vous organisiez une sortie.</p>
-				<p>Ayez facilement des retours concrets sur vos activiés.</p>
-				<nav><a href="register">Inscrire un groupe</a></nav>
-			</article>
-
-			<p><strong>Lire nos dispositions pour la sécurité des enfants</strong></p>
+				<figure>
+					<img src="public/images/cantal.jpg" alt="Le Cantal" />
+					<figcaption>Le Cantal</figcaption>
+				</figure>
+				
+				<footer>
+					<p>Sélection de destinations<br />
+						<a href="howweelect">Savoir comment</a>
+					</p>
+				</footer>
+			</div>
 		</section>
 
 		<footer>
