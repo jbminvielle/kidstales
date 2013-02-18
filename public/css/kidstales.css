@@ -28,6 +28,8 @@ body {
 	font-size: 18px;
 	color: #4d483f;
 	overflow-x: hidden;
+
+	margin-bottom: 70px;
 }
 
 p:not(:last-child) {
@@ -146,7 +148,6 @@ section {
 	background-image: url('images/grey_pattern.png');
 	box-shadow: 10px 10px 0px rgba(0,0,0,.25);
 	padding: 13px;
-	vertical-align: top;
 }
 
 section>div {
@@ -315,11 +316,6 @@ body {
 	#main {
 		width: 100%!important;
 	}
-
-	header>nav>ul>a:nth-child(3)>li {
-		right: 15px!important;
-	}
-
 	header { margin-bottom: 0!important;}
 }
 
@@ -329,6 +325,11 @@ body {
 	header>nav>ul>a:nth-child(2) {
 		display: none;
 	}
+
+	header>nav>ul>a:nth-child(3)>li {
+		right: 2%!important;
+	}
+
 
 	nav {
 		padding: 0 20px !important;
