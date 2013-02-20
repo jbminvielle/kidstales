@@ -30,6 +30,26 @@ body {
 	overflow-x: hidden;
 }
 
+
+body>div#map_canvas {
+	width:100%;
+
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+body>div#app {
+	position: absolute;
+	width:100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background: rgba(242, 101, 22, .2);
+}
+
+
 p:not(:last-child) {
 	margin-bottom: 6px;
 	line-height: 1.2em;
@@ -146,7 +166,6 @@ section {
 	background-image: url('images/grey_pattern.png');
 	box-shadow: 10px 10px 0px rgba(0,0,0,.25);
 	padding: 13px;
-	vertical-align: top;
 }
 
 section>div {
@@ -286,7 +305,7 @@ section#explanations strong {
 	margin-top: 40px;
 }
 
-body>footer {
+body>div>footer {
 	position: fixed;
 	bottom: 0px;
 	text-align: center;
@@ -299,7 +318,7 @@ body>footer {
 
 	z-index: 10
 }
-body>footer>p {
+body>div>footer>p {
 	margin: 3px
 }
 
@@ -315,11 +334,6 @@ body {
 	#main {
 		width: 100%!important;
 	}
-
-	header>nav>ul>a:nth-child(3)>li {
-		right: 15px!important;
-	}
-
 	header { margin-bottom: 0!important;}
 }
 
@@ -329,6 +343,11 @@ body {
 	header>nav>ul>a:nth-child(2) {
 		display: none;
 	}
+
+	header>nav>ul>a:nth-child(3)>li {
+		right: 2%!important;
+	}
+
 
 	nav {
 		padding: 0 20px !important;
@@ -350,7 +369,8 @@ body {
 
 	article {
 		margin: auto;
-		width: 100px;
+		width: 80%;
+		font-size: 12px;
 	}
 }
 

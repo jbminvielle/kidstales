@@ -37,6 +37,7 @@ class App_controller{
     // F3::set('prev',$linkPrev);
     
     
+    F3::set('ajaxRequest',false);
     echo Views::instance()->render('index.html');
  }
  
