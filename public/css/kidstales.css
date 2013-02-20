@@ -28,9 +28,27 @@ body {
 	font-size: 18px;
 	color: #4d483f;
 	overflow-x: hidden;
-
-	margin-bottom: 70px;
 }
+
+
+body>div#map_canvas {
+	width:100%;
+
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+body>div#app {
+	position: absolute;
+	width:100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background: rgba(242, 101, 22, .2);
+}
+
 
 p:not(:last-child) {
 	margin-bottom: 6px;
@@ -287,7 +305,7 @@ section#explanations strong {
 	margin-top: 40px;
 }
 
-body>footer {
+body>div>footer {
 	position: fixed;
 	bottom: 0px;
 	text-align: center;
@@ -300,7 +318,7 @@ body>footer {
 
 	z-index: 10
 }
-body>footer>p {
+body>div>footer>p {
 	margin: 3px
 }
 
@@ -351,7 +369,8 @@ body {
 
 	article {
 		margin: auto;
-		width: 100px;
+		width: 80%;
+		font-size: 12px;
 	}
 }
 
