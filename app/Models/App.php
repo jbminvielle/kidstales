@@ -8,7 +8,7 @@ class App extends Prefab{
         F3::get('db_pw')));
   }
   
-  function sortStories($attr){
+  function sortStoriesByLocation($attr){
     $storiesDB=new DB\SQL\Mapper(F3::get('dB'),'stories');
     return $storiesDB->find(array('votes>=?',20,'location=?',$attr),array('order'=>'note','limit'=>20));
 
