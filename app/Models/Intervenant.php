@@ -8,9 +8,15 @@ class Intervenant extends Prefab{
         F3::get('db_pw')));
   }
   
-  function sortStoriesByLocation($attr){
+  function sortStoriesByNote($attr){
     $storiesDB=new DB\SQL\Mapper(F3::get('dB'),'stories');
     return $storiesDB->find(array('votes>=?',20,'location=?',$attr),array('order'=>'note','limit'=>20));
+
+  }
+
+  function getChilds($session){
+    $enfantsDB=new DB\SQL\Mapper(F3::get('dB'),'enfants');
+    return $enfantsDB->find(array('session=?',$session),array('order'=>'prenom');
 
   }
   

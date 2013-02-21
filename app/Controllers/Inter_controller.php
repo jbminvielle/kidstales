@@ -1,14 +1,14 @@
 <?php
-class App_controller{
+class Inter_controller{
  
  function __construct(){
   
  }
  
  function home(){
-    // $id=F3::get('PARAMS.id');
-    // #récupération de la destination courante
-    // $App=new App();
+    $id=F3::get('PARAMS.id');
+    #récupération de la destination courante
+    $Intervenant=new Intervenant();
     // $location=$App->locationDetails($id);
     // if(!$location){
     //   F3::error('404');
