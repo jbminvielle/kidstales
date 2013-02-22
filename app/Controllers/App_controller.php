@@ -37,7 +37,7 @@ class App_controller{
 		$this->viewName = 'kidsSpace';
 	}
 
-	//adding automatically the viw call
+	//adding automatically the view call
 	function afterRoute() {
 		F3::set('ajaxRequest',false);
 		echo Views::instance()->render($this->viewName.'.php');
