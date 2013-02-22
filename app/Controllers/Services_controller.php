@@ -5,7 +5,6 @@ class App_controller{
 
 	}
 
-
 	function getBestPlaces(){
 		$post = F3::get('GET');
 
@@ -14,7 +13,6 @@ class App_controller{
 
 		echo Views::instance()->render('userref.html');
 	}
-
 
 	function __destruct(){
 
