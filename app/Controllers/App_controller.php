@@ -21,11 +21,10 @@ class App_controller{
 		echo Views::instance()->render('register.php');
 	}
 
+	function afterroute() {
 
-	function doc(){
-		echo Views::instance()->render('userref.html');
+		
 	}
-
 
 	function __destruct(){
 

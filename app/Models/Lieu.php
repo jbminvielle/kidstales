@@ -8,9 +8,17 @@ class App extends Prefab{
         F3::get('db_pw')));
   }
 
-  function getBestPlaces($array) {
-  	
+  function getMeilleursLieu($array, $limite=10) {
+
+  	//appeler la base de donnée, selectionner les meilleurs lieux triés par note, en limitant à $limite
+
+  	return $meilleursLieu;
   }
+
+
+  function addLieu($lat, $lng, $cont, $lieu) {
+
+  	//appeler la base de donnée, ajouter le lieu dedans avec ces informations
 
   function __destruct(){
 
