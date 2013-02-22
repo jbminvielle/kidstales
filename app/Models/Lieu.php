@@ -1,5 +1,5 @@
 <?php
-class App extends Prefab{
+class Lieu extends Prefab{
   
   function __construct(){
     F3::set('dB',new DB\SQL(
@@ -10,7 +10,7 @@ class App extends Prefab{
 
   function getMeilleursLieu($array, $limite=10) {
 
-  	//appeler la base de donnée, selectionner les meilleurs lieux triés par note, en limitant à $limite
+  	//todo : appeler la base de donnée, selectionner les meilleurs lieux triés par note, en limitant à $limite
 
   	return $meilleursLieu;
   }
@@ -18,7 +18,7 @@ class App extends Prefab{
 
   function addLieu($lat, $lng, $cont, $lieu) {
 
-  	//appeler la base de donnée, ajouter le lieu dedans avec ces informations
+  	//todo : appeler la base de donnée, ajouter le lieu dedans avec ces informations
 
   function __destruct(){
 
