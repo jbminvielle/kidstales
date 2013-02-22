@@ -1,0 +1,35 @@
+/* forms */
+
+input {
+	margin: 4px;
+	padding: 4px;
+
+	margin-left: 210px;
+}
+
+input[type=text], input[type=password] {
+	width: 150px;
+
+	position: relative;
+	bottom: 6px;
+}
+
+label.info {
+	margin-right: 10px;
+
+	position: absolute;
+	left: 0;
+
+	width: 240px;
+	text-align: right;
+}
+
+button, input[type=button], input[type=submit] {
+	background: #3ba58c;
+	padding: 5px;
+	color: #fff4d8;
+	border: none;
+	box-shadow: inset 0px 0px 4px rgba(0,0,0,0.4);
+
+	font-size: 20px;
+}
