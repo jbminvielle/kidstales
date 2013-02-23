@@ -15,7 +15,7 @@ class App_controller{
 			'min_lat' => $_GET['min_lat'],
 			'max_lat' => $_GET['max_lat'],
 			'min_lng' => $_GET['min_lng'],
-			'max_lng' => $_GET['max_lng'],
+			'max_lng' => $_GET['max_lng']
 		);
 
 		if(!isset($_GET['limite']))
