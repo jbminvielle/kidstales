@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: 127.0.0.1
--- Généré le: Ven 22 Février 2013 à 18:40
+-- Généré le: Sam 23 Février 2013 à 16:43
 -- Version du serveur: 5.5.27-log
 -- Version de PHP: 5.4.6
 
@@ -153,6 +153,7 @@ CREATE TABLE IF NOT EXISTS `media` (
   `type` varchar(20) NOT NULL,
   `lien` varchar(100) NOT NULL,
   `id_histoire` int(11) NOT NULL,
+  `public` tinyint(1) NOT NULL,
   KEY `media_uk_histoire_idx` (`id_histoire`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
