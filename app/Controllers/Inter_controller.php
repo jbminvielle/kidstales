@@ -11,7 +11,7 @@ class Inter_controller{
     $Inter=new Intervenant();
     $childs = $Inter->getChilds("sexe", 0);
     //print_r($childs);
-    $result['passwords']=array_map(function($item){return array('mdp'=>$item->mdp);},$childs);
+    $result=array_map(function($item){return array('prenom'=>$item->prenom,'mdp'=>$item->mdp, 'id'=>$item->id_enfant, 'mail'=>$item->mail);},$childs);
     echo json_encode($result);
 
     // $location=$App->locationDetails($id);
