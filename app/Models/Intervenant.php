@@ -8,12 +8,19 @@ class Intervenant extends Prefab{
         F3::get('db_pw')));
   }
 
-  function getChilds($attr, $value){
+  function getChilds(){
     $enfantsDB=new DB\SQL\Mapper(F3::get('dB'),'enfant');
-    return $enfantsDB->find(array($attr.'=?', $value),array('order'=>'prenom'));
+    return $enfantsDB->find(NULL,array('order'=>'prenom'));
 
   }
 
+  function addChild(){
+    $enfantsDB=new DB\SQL\Mapper(F3::get('dB'),'enfant');
+    $user->userID='jane';
+    $user->password=md5('secret');
+    $user->visits=0;
+    $user->save();
+  }
   function __destruct(){
 
   }
