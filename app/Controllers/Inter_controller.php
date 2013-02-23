@@ -9,10 +9,10 @@ class Inter_controller{
     $id=F3::get('PARAMS.id');
     #récupération de la destination courante
     $Inter=new Intervenant();
-    $childs = $Inter->getChilds("1");
+    $childs = $Inter->getChilds("sexe", 0);
     //print_r($childs);
-    $ajax['passwords']=array_map(function($item){return array('mdp'=>$item->mdp);},$childs);
-    echo json_encode($ajax);
+    $result['passwords']=array_map(function($item){return array('mdp'=>$item->mdp);},$childs);
+    echo json_encode($result);
 
     // $location=$App->locationDetails($id);
     // if(!$location){
@@ -41,8 +41,6 @@ class Inter_controller{
     // F3::set('next',$linkNext);
     // F3::set('prev',$linkPrev);
     
-    
-    echo Views::instance()->render('index.html');
  }
  
  

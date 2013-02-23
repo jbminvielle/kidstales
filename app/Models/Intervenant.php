@@ -8,9 +8,9 @@ class Intervenant extends Prefab{
         F3::get('db_pw')));
   }
 
-  function getChilds($session){
+  function getChilds($attr, $value){
     $enfantsDB=new DB\SQL\Mapper(F3::get('dB'),'enfant');
-    return $enfantsDB->find(array('session=?',$session),array('order'=>'prenom'));
+    return $enfantsDB->find(array($attr.'=?', $value),array('order'=>'prenom'));
 
   }
 
