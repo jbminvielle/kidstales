@@ -8,7 +8,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>Kidstales</title>
+		<title><?php echo $viewTitle; ?></title>
  
 		<!-- meta -->
 		<meta name="description" content="">
@@ -43,3 +43,5 @@
 					</ul>
 				</nav>
 			</header>
+
+	<div id="ajaxContent">
