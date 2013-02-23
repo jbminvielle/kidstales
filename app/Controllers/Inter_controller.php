@@ -8,7 +8,12 @@ class Inter_controller{
  function home(){
     $id=F3::get('PARAMS.id');
     #récupération de la destination courante
-    $Intervenant=new Intervenant();
+    $Inter=new Intervenant();
+    $childs = $Inter->getChilds("1");
+    //print_r($childs);
+    $ajax['passwords']=array_map(function($item){return array('mdp'=>$item->mdp);},$childs);
+    echo json_encode($ajax);
+
     // $location=$App->locationDetails($id);
     // if(!$location){
     //   F3::error('404');

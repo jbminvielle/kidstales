@@ -15,8 +15,8 @@ class Intervenant extends Prefab{
   }
 
   function getChilds($session){
-    $enfantsDB=new DB\SQL\Mapper(F3::get('dB'),'enfants');
-    return $enfantsDB->find(array('session=?',$session),array('order'=>'prenom');
+    $enfantsDB=new DB\SQL\Mapper(F3::get('dB'),'enfant');
+    return $enfantsDB->find(array('session=?',$session),array('order'=>'prenom'));
 
   }
   
