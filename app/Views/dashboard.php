@@ -5,34 +5,16 @@
  		<div id="main">
 			<section id="explanations">
 				<div>
-					<h1>Suivi de mon groupe</span></h1>
-					<h2>laisser la main au enfants</h2>
 
-					<form>
-						<p>
-						<hr>
-						</p>
+					<h1>Suivi de mon groupe</h1>
+					<button>Laisser la main aux enfants</button><br />
 
-						<p>
-						<hr>
-						</p>
-
-						<p>
-						<hr>
-						</p>
-
-						<p>
-						<hr>
-						</p>
+					<p>
+					<!--début de la boucle-->
+							
 						
-						<p>
-						<hr>
-						</p>
-
-						<p>
-						<hr>
-						</p>
-					</form>
+					<!--fin de la boucle-->
+					</p>
 				<div>
 			</section>
 		</div>

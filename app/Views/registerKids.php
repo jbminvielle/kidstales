@@ -12,14 +12,14 @@
 
 					<form id="dynamicAdd">
 						<p>
-						<input type="text" name="kids_surname" placeholder="Prénom" />
-						<select name="kids_sex">
-							<option value="null" label="sexe..." selected disabled />
-							<option value="1" label="garçon" />
-							<option value="0" label="fille" />
-						</select>
-						<input type="text" name="kids_parents_name" placeholder="Mail de ses parents" />
-						<button>Ajouter</button>
+							<input type="text" name="kids_surname" placeholder="Prénom" />
+							<select name="kids_sex">
+								<option value="null" label="sexe..." selected disabled />
+								<option value="1" label="garçon" />
+								<option value="0" label="fille" />
+							</select>
+							<input type="text" name="kids_parents_name" placeholder="Mail de ses parents" />
+							<button>Ajouter</button>
 						</p>
 
 						<p>
