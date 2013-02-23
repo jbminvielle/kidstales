@@ -74,6 +74,9 @@ $(document).ready(function() {
 
 		changeUrl(src);
 	});
+
+	// todo : support des boutons précédent/suivant
+
 	// if ("onhashchange" in window) { // event supported?
 	// 	window.onhashchange = function () {
 	// 		alert(window.location);

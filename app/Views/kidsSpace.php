@@ -30,7 +30,7 @@
 				<div>
 			</section>
 		</div>
-
+		
 		<?php require "partials/sidebar.php"; ?>
 
 <?php

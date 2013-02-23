@@ -18,6 +18,8 @@ class Lieu extends Prefab{
 
   function addLieu($lat, $lng, $cont, $lieu) {
 
+  }
+
   	//todo : appeler la base de donnée, ajouter le lieu dedans avec ces informations
 
   function __destruct(){
