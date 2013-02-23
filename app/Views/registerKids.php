@@ -5,26 +5,25 @@
  		<div id="main">
 			<section id="explanations">
 				<div>
-					<h1>S'inscrire</span></h1>
-					<h2>C'est rapide et gratuit !</h2>
+					<h1>Nouveau groupe</h1>
 
-					<form>
+					<button>Importer un groupe existant</button><br />
+					<small>Vous pourrez modifier le groupe par la suite</small>
+
+					<form id="dynamicAdd">
 						<p>
-						<label for="name_field" class="info">Nom</label><input type="text" name="name" placeholder="Robert Baden-Powell" id="name_field" /><br />
-						<label for="structure_field" class="info">Structure</label><input type="text" name="structure" placeholder="Scouts et Guides de France" id="structure_field" /><br />
-						<label for="mail_field" class="info">Mail</label><input type="text" name="mail" placeholder="bp@army.mod.uk" id="mail_field" /><br />
-						<label for="psswrd1_field" class="info">Mot de pase</label><input type="password" name="psswrd1" id="psswrd1_field" /><br />
-						<label for="psswrd2_field" class="info">Confirmation</label><input type="password" name="psswrd2" id="psswrd2_field" /><br />
-						<label class="info">Vous êtes</label>
-						<input type="checkbox" name="parent" id="parent_checkbox" /><label for="parent_checkbox">Parent</label><br />
-						<input type="checkbox" name="accompagnateur" id="accompagnateur_checkbox" /><label for="accompagnateur_checkbox">Accompagnant de voyage scolaire</label><br />
-						<input type="checkbox" name="animateur" id="animateur_checkbox" /><label for="animateur_checkbox">Animateur de colonie</label><br />
-						<input type="checkbox" name="autre" id="autre_checkbox" /><label for="autre_checkbox">Autre (précisez...)</label>
-						<input type="text" name="autre_valeur" id="autre_field" />
+						<input type="text" name="kids_surname" placeholder="Prénom" />
+						<select name="kids_sex">
+							<option value="null" label="sexe..." selected disabled />
+							<option value="1" label="garçon" />
+							<option value="0" label="fille" />
+						</select>
+						<input type="text" name="kids_parents_name" placeholder="Mail de ses parents" />
+						<button>Ajouter</button>
 						</p>
 
 						<p>
-						<input type="submit" value="S'inscrire" />
+						<input type="submit" value="Inscrire ce groupe" />
 						</p>
 					</form>
 				<div>
@@ -32,7 +31,7 @@
 		</div>
 
 		<?php require "partials/sidebar.php"; ?>
-		
+
 <?php
 	if(!$ajaxRequest) require "partials/footer.php"
 ?>

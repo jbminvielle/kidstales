@@ -1,13 +1,13 @@
 /* forms */
 
-input {
+form:not(#dynamicAdd) input {
 	margin: 4px;
 	padding: 4px;
 
 	margin-left: 210px;
 }
 
-input[type=text], input[type=password] {
+form:not(#dynamicAdd) input[type=text], input[type=password] {
 	width: 150px;
 
 	position: relative;

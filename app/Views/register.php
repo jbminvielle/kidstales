@@ -32,7 +32,7 @@
 		</div>
 
 		<?php require "partials/sidebar.php"; ?>
-
+		
 <?php
 	if(!$ajaxRequest) require "partials/footer.php"
 ?>
