@@ -1,0 +1,26 @@
+.dashboard_element {
+	margin: 10px 0;
+	white-space: nowrap;
+}
+
+.dashboard_element>span {
+	display: inline-block;
+	height: 50px;
+
+	vertical-align: top;
+}
+
+.dashboard_element>.picture {
+	width: 50px;
+}
+
+.dashboard_element .content .line1 {
+	display: block;	
+}
+.dashboard_element>.content>.line1>.author {
+	font-weight: bold;
+}
+.dashboard_element .content .line2 {
+	display: block;
+	font-size: 0.9em;
+}

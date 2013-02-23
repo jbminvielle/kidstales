@@ -21,6 +21,7 @@
 		<link rel="stylesheet" href="public/css/reset.css" type="text/css" media="screen"  />
 		<link rel="stylesheet" href="public/css/kidstales.css" type="text/css" media="screen"  />
 		<link rel="stylesheet" href="public/css/form.css" type="text/css" media="screen"  />
+		<link rel="stylesheet" href="public/css/dashboard.css" type="text/css" media="screen"  />
 
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="public/js/lib/modernizr-2.5.3.min.js"></script>

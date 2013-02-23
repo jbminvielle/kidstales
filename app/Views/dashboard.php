@@ -20,15 +20,17 @@
 							<span class="picture">
 							</span>
 
-							<span class="line1">
-								<span class="author">Julien</span> 
-								(<span class="lieu">Chateau de Vincennes</span>).
-							</span>
+							<span class="content">
+								<span class="line1">
+									<span class="author">Julien</span> 
+									(<span class="lieu">Chateau de Vincennes</span>)
+								</span>
 
-							<span class="line2">
-								<span class="note">4/5</span> -
-								<span class="medias">Commentaire, photos</span>
-								<span class="verify">[vérifier]</span>
+								<span class="line2">
+									<span class="note">4/5</span> -
+									<span class="medias">Commentaire, photos</span>
+									<span class="verify">[vérifier]</span>
+								</span>
 							</span>
 						</div>
 						
