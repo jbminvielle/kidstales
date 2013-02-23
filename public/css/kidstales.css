@@ -59,14 +59,6 @@ strong {
 	color: #f26516;
 }
 
-button {
-	background: #3ba58c;
-	padding: 5px;
-	color: #fff4d8;
-	border: none;
-	box-shadow: inset 0px 0px 4px rgba(0,0,0,0.4);
-}
-
 header {
 	margin: 0; padding: 0;
 	margin-top: 16px;
@@ -246,13 +238,14 @@ section#explanations {
 section#explanations>div {
 	padding: 40px;
 	padding-bottom: 20px;
-
+	position: relative;
 }
 
+
 section#explanations h1 {
-	font-size: 104px;
+	font-size: 84px;
 	line-height: 64px;
-	width: 290px; margin: auto;
+	margin: auto; text-align: center;
 	letter-spacing: -5.6px;
 
 	font-family: 'sketch_blockbold';
@@ -260,8 +253,18 @@ section#explanations h1 {
 
 	color: #f26516;
 }
-section#explanations h1 span {
+
+
+section#explanations h1.logo {
+	font-size: 104px;
+}
+
+section#explanations h1.logo span {
 	font-size: 0.81em;
+	display: block;
+	margin-top: 4px;
+	margin-left: -11px;
+
 }
 
 section#explanations h2, section#explanations h3, section#explanations h4 {
@@ -277,6 +280,8 @@ section#explanations h2 {
 	text-align: center;
 	margin: 5px;
 	font-weight: normal;
+
+	margin-bottom: 15px;
 }
 section#explanations h3 { font-size: 24px }
 section#explanations h4 { font-size: 18px }

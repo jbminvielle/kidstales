@@ -1,54 +1,67 @@
 <?php
 class App_controller{
- 
- function __construct(){
-  
- }
- 
- function home(){
-    // $id=F3::get('PARAMS.id');
-    // #récupération de la destination courante
-    // $App=new App();
-    // $location=$App->locationDetails($id);
-    // if(!$location){
-    //   F3::error('404');
-    //   return;
-    // }
-    // F3::set('location',$location);
-    
-    // if(F3::get('AJAX')){
-    //   $ajax['coords']['lat']=$location->lat;
-    //   $ajax['coords']['lng']=$location->lng;
-    //   $pictures=App::instance()->locationPictures($location->id);
-    //   $ajax['pictures']=array_map(function($item){return array('image'=>$item->src);},$pictures);
-    //   echo json_encode($ajax);
-    //   return;
-    // }
 
-    
-    // $next=$App->getNext($location->id);
-    // $prev=$App->getPrev($location->id);
-    
-   
-    // $linkNext=$next?$next[0]['id'].'-'.$next[0]['title']:'';
-    // $linkPrev=$prev?$prev[0]['id'].'-'.$prev[0]['title']:'';
-    
-    // F3::set('next',$linkNext);
-    // F3::set('prev',$linkPrev);
-    
-    
-    F3::set('ajaxRequest',false);
-    echo Views::instance()->render('index.html');
- }
- 
- 
-  function doc(){
-    echo Views::instance()->render('userref.html');
-  }
-  
- 
- function __destruct(){
+	private $viewName;
 
- } 
+	function __construct(){
+
+	}
+
+	function home(){
+		F3::set('viewTitle', "Kid's Tales");
+		$this->viewName = 'index';
+	}
+
+	function explore() {
+		F3::set('viewTitle', "Kid's Tales - Explorer");
+		$this->viewName = 'explore';
+	}
+
+	function register() {
+		F3::set('viewTitle', "Kid's Tales - S'inscrire");
+		$this->viewName = 'register';
+	}
+
+    function registerKids() {
+		//todo :get signup informations for session
+
+		F3::set('viewTitle', "Kid's Tales - Inscrire un groupe");
+		$this->viewName = 'registerKids';
+	}
+
+	function dashboard() {
+		//todo : get kids and signup infos for session
+
+		F3::set('viewTitle', "Kid's Tales - Tableau de bord");
+		$this->viewName = 'dashboard';
+	}
+
+	function kidsSpace() {
+		//todo : get kids list and signup infos for session (and logout from kidsplace)
+
+		F3::set('viewTitle', "Kid's Tales - Espace enfant");
+		$this->viewName = 'kidsSpace';
+	}
+
+	//adding automatically the view call
+	function afterRoute() {
+
+		// This include or not header and footer :
+		if(isset($_GET['ajax'])) F3::set('ajaxRequest', true);
+		else F3::set('ajaxRequest', false);
+
+		$html = Views::instance()->render($this->viewName.'.php');
+
+		if(F3::get('ajaxRequest')) {
+			echo json_encode(array(
+				'page_title'=> F3::get('viewTitle'),
+				'page_content'=> $html));
+		}
+		else echo $html;
+	}
+
+	function __destruct(){
+
+	}
 }
 ?>
