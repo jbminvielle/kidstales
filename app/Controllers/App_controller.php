@@ -22,12 +22,7 @@ class App_controller{
 		$this->viewName = 'register';
 	}
 
-    function follow() {
-		F3::set('viewTitle', "Kid's Tales - Suivre mon groupe");
-		$this->viewName = 'follow';
-	}
-
-	function registerKids() {
+    function registerKids() {
 		//todo :get signup informations for session
 
 		F3::set('viewTitle', "Kid's Tales - Inscrire un groupe");
