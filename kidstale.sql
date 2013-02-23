@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `enfant` (
   `prenom` varchar(50) NOT NULL,
   `mail` varchar(100) NOT NULL,
   `mdp` varchar(50) NOT NULL,
+  `sexe` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_enfant`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -38,18 +39,18 @@ CREATE TABLE IF NOT EXISTS `enfant` (
 -- Contenu de la table `enfant`
 --
 
-INSERT INTO `enfant` (`id_enfant`, `prenom`, `mail`, `mdp`) VALUES
-(0, 'Julien', 'mail3@dom.com', 'motdepass1'),
-(1, 'Théo', 'mail1@dom.com', 'motdepass2'),
-(2, 'Emilie', 'mail@dom.com', 'motdepass3'),
-(3, 'Julie', 'mail4@dom.com', 'motdepass4'),
-(4, 'Marie', 'mail8@dom.com', 'motdepass5'),
-(5, 'Baptiste', 'mail7@dom.com', 'motdepass6'),
-(6, 'Grégoire', 'mail6@dom.com', 'motdepass7'),
-(7, 'Anna', 'mail5@dom.com', 'motdepass8'),
-(8, 'Jérémi', 'mail22@dom.com', 'motdepass9'),
-(9, 'Jule', 'mail2@dom.com', 'motdepass10'),
-(10, 'Jennyfer', 'mail9@dom.com', 'motdepass11');
+INSERT INTO `enfant` (`id_enfant`, `prenom`, `mail`, `mdp`, `sexe`) VALUES
+(0, 'Julien', 'mail3@dom.com', 'motdepass1', 0),
+(1, 'Théo', 'mail1@dom.com', 'motdepass2', 0),
+(2, 'Emilie', 'mail@dom.com', 'motdepass3', 0),
+(3, 'Julie', 'mail4@dom.com', 'motdepass4', 0),
+(4, 'Marie', 'mail8@dom.com', 'motdepass5', 0),
+(5, 'Baptiste', 'mail7@dom.com', 'motdepass6', 0),
+(6, 'Grégoire', 'mail6@dom.com', 'motdepass7', 0),
+(7, 'Anna', 'mail5@dom.com', 'motdepass8', 0),
+(8, 'Jérémi', 'mail22@dom.com', 'motdepass9', 0),
+(9, 'Jule', 'mail2@dom.com', 'motdepass10', 0),
+(10, 'Jennyfer', 'mail9@dom.com', 'motdepass11', 0);
 
 -- --------------------------------------------------------
 
