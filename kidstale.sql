@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: 127.0.0.1
--- Généré le: Sam 23 Février 2013 à 16:43
+-- Généré le: Sam 23 Février 2013 à 17:00
 -- Version du serveur: 5.5.27-log
 -- Version de PHP: 5.4.6
 
@@ -61,7 +61,7 @@ INSERT INTO `enfant` (`id_enfant`, `prenom`, `mail`, `mdp`, `sexe`) VALUES
 CREATE TABLE IF NOT EXISTS `histoire` (
   `id_histoire` int(11) NOT NULL,
   `cont` text NOT NULL,
-  `date` date NOT NULL,
+  `date` datetime NOT NULL,
   `evaluation` int(100) NOT NULL,
   `id_enfant` int(11) NOT NULL,
   `id_lieu` int(11) NOT NULL,
@@ -75,16 +75,16 @@ CREATE TABLE IF NOT EXISTS `histoire` (
 --
 
 INSERT INTO `histoire` (`id_histoire`, `cont`, `date`, `evaluation`, `id_enfant`, `id_lieu`) VALUES
-(0, 'Nous avons visité le chateau de Vincenne, c''était trop cool!', '2013-06-08', 45, 2, 4),
-(1, 'Les moniteurs on fait un feu de camp et nous avons fait une veillé chocolat.', '2013-08-03', 34, 3, 3),
-(2, 'Nous avons fini de monter les tentes, l''après-midi était difficile', '2013-08-01', 45, 4, 1),
-(3, 'J''ai appris à tirer à l''arc, pas évident de viser juste :(', '2013-06-12', 23, 1, 3),
-(4, 'Nous avons visité le musé du vin, lendemain difficil...', '2013-07-08', 65, 5, 6),
-(5, 'Nous avons été divisé en quatres groupes pour un cache cache géant. Génial!', '2013-08-16', 45, 7, 3),
-(6, 'La colonie est arrivé à destination, à part deux morts tout va bien. Demain on enterre les corps.', '2013-06-22', 76, 4, 5),
-(7, 'C''est mardi, avant dernière soirée :( , mais ce soir c''est la boom!! ', '2013-07-30', 34, 2, 3),
-(8, 'Expédition en montagne pour les enfants, on va se muscler les jambes.', '2013-08-10', 98, 8, 6),
-(9, 'Dimanche, il pleut...', '2013-08-30', 56, 4, 2);
+(0, 'Nous avons visité le chateau de Vincenne, c''était trop cool!', '2013-06-08 16:30:42', 45, 2, 4),
+(1, 'Les moniteurs on fait un feu de camp et nous avons fait une veillé chocolat.', '2013-08-03 22:00:00', 34, 3, 3),
+(2, 'Nous avons fini de monter les tentes, l''après-midi était difficile', '2013-08-01 17:30:00', 45, 4, 1),
+(3, 'J''ai appris à tirer à l''arc, pas évident de viser juste :(', '2013-06-12 14:22:00', 23, 1, 3),
+(4, 'Nous avons visité le musé du vin, lendemain difficil...', '2013-07-08 11:42:00', 65, 5, 6),
+(5, 'Nous avons été divisé en quatres groupes pour un cache cache géant. Génial!', '2013-08-16 10:24:00', 45, 7, 3),
+(6, 'La colonie est arrivé à destination, à part deux morts tout va bien. Demain on enterre les corps.', '2013-06-22 19:52:00', 76, 4, 5),
+(7, 'C''est mardi, avant dernière soirée :( , mais ce soir c''est la boom!! ', '2013-07-30 21:22:00', 34, 2, 3),
+(8, 'Expédition en montagne pour les enfants, on va se muscler les jambes.', '2013-08-10 14:20:00', 98, 8, 6),
+(9, 'Dimanche, il pleut...', '2013-08-30 12:15:00', 56, 4, 2);
 
 -- --------------------------------------------------------
 

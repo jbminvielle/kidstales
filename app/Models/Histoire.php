@@ -13,13 +13,13 @@ class Histoire extends Prefab{
 	}
 
 
-	function getHistoires($idsArray) {
+	function getHistoires($idsArray){
 		//todo
 
 		return $histoires //array = tableau
 	}
 
-	function addHistoires($contenu, $idEnfant, $idLieu, $medias, $date='today') {
+	function addHistoires($contenu, $idEnfant, $idLieu, $medias, $date='today'){
 		//todo
 
 		return $status // success ou error
