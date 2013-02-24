@@ -27,6 +27,11 @@ class App extends Prefab{
     return F3::get('dB')->exec("select id, title from location where id =(select max(id) from location where id < ".$id.")");
   }
   
+	function bestStory() {
+		//choose the best story
+	    $storiesDB=new DB\SQL\Mapper(F3::get('dB'),'stories');
+		return $bestStory->find(array('votes>=?'),array('order'=>'note'));
+	}
 
   function __destruct(){
 
