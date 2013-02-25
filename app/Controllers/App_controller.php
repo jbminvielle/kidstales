@@ -9,16 +9,22 @@ class App_controller{
 
 	function home(){
 		F3::set('viewTitle', "Kid's Tales");
+		F3::set('smallHeader', false);
+		F3::set('map', true);
 		$this->viewName = 'index';
 	}
 
 	function explore() {
 		F3::set('viewTitle', "Kid's Tales - Explorer");
+		F3::set('smallHeader', false);
+		F3::set('map', true);
 		$this->viewName = 'explore';
 	}
 
 	function register() {
 		F3::set('viewTitle', "Kid's Tales - S'inscrire");
+		F3::set('smallHeader', true);
+		F3::set('map', true);
 		$this->viewName = 'register';
 	}
 
@@ -26,6 +32,9 @@ class App_controller{
 		//todo :get signup informations for session
 
 		F3::set('viewTitle', "Kid's Tales - Inscrire un groupe");
+		F3::set('smallHeader', true);
+		F3::set('map', false);
+
 		$this->viewName = 'registerKids';
 	}
 
@@ -33,6 +42,8 @@ class App_controller{
 		//todo : get kids and signup infos for session
 
 		F3::set('viewTitle', "Kid's Tales - Tableau de bord");
+		F3::set('smallHeader', true);
+		F3::set('map', false);
 		$this->viewName = 'dashboard';
 	}
 
@@ -40,6 +51,8 @@ class App_controller{
 		//todo : get kids list and signup infos for session (and logout from kidsplace)
 
 		F3::set('viewTitle', "Kid's Tales - Espace enfant");
+		F3::set('smallHeader', true);
+		F3::set('map', false);
 		$this->viewName = 'kidsSpace';
 	}
 
@@ -60,6 +73,8 @@ class App_controller{
 		if(F3::get('ajaxRequest')) {
 			echo json_encode(array(
 				'page_title'=> F3::get('viewTitle'),
+				'small_header'=> F3::get('smallHeader'),
+				'map'=> F3::get('map'),
 				'page_content'=> $html));
 		}
 		else echo $html;

@@ -89,6 +89,17 @@ function parseHTML() {
 	// }
 }
 
+function viewChanged(obj) {
+	if(obj.small_header) $('header').addClass('small');
+	else $('header').removeClass('small');
+
+	if(obj.map) $('#map_canvas').removeClass('hidden');
+	else $('#map_canvas').addClass('hidden');
+
+	closePopup();
+	//parseHTML();
+}
+
 function getDocHeight() {
 		var D = document;
 		return Math.max(
@@ -110,8 +121,7 @@ function changeUrl(src) {
 			document.title = response.page_title;
 			window.history.pushState({"html": response.page_content,"pageTitle": response.page_title},"", src);
 
-			closePopup();
-			parseHTML();
+			viewChanged(response);
 		}
 	});
 }

@@ -66,6 +66,8 @@ header {
 	height: 165px; width: 100%;
 	overflow: hidden;
 	position: relative;
+
+	-webkit-transition: height 0.5s;
 }
 
 header>nav {
@@ -77,6 +79,10 @@ header>nav {
 
 	position: relative;
 	z-index: 2
+
+	overflow: hidden;
+
+	-webkit-transition: height 0.5s, width 0.5s;
 }
 
 header>nav>ul {
@@ -104,6 +110,8 @@ header>nav>ul li>h1 {
 	left: -4px;
 	text-shadow: 3px 3px 0px rgba(0,0,0,.25);
 	letter-spacing: -7px;
+
+	-webkit-transition: font-size 0.5s, line-height 0.5s, width 0.5s, top 0.5s, left 0.5s, letter-spacing 0.5s;
 }
 header>nav>ul li>h1 span {
 	font-size: 0.81em;
@@ -121,6 +129,8 @@ header>nav>ul>a:nth-child(2)>li, header>nav>ul>a:nth-child(3)>li {
 	top: 14px;
 
 	box-shadow: 3px 3px 0px rgba(0,0,0,.25);
+
+	-webkit-transition: width 0.5s, height 0.5s, margin-left 0.5s, border 0.5s, border-radius 0.5s, top 0.5s;
 }
 
 header>nav>ul>a:nth-child(2)>li:active, header>nav>ul>a:nth-child(3)>li:active {
@@ -135,6 +145,7 @@ header>nav>ul>a:nth-child(2)>li {
 	color: #514c43;
 	right: 337px;
 
+	-webkit-transition: right 0.5s;
 }
 
 
@@ -146,12 +157,58 @@ header>nav>ul>a:nth-child(3)>li {
 	background: rgba(255,239,211,0.1);
 
 	text-shadow: 3px 3px 0px rgba(0,0,0,.25);
+
+	-webkit-transition: right 0.5s, font-size 0.5s, width 0.5s, height 0.5s;
 }
+
 header>nav>ul>a:nth-child(3)>li:active {
 	text-shadow: 1px 1px 0px rgba(0,0,0,.25);
 
 }
 
+	/* small version */
+
+	header.small {
+		height: 82px;
+	}
+
+	header.small>nav {
+		height: 82px; width: 100%;
+		margin-left: -20px;
+	}
+
+
+	header.small>nav>ul li>h1 {
+		font-size: 65px;
+		line-height: 40px;
+		width: 176px;
+		top: 9px;
+		left: -2px;
+		letter-spacing: -3px;
+	}
+
+
+	header.small>nav>ul>a:nth-child(2)>li, header.small>nav>ul>a:nth-child(3)>li {
+		width: 128px; height: 62.5px;
+		margin-left: 5px;
+
+		border: 3.5px solid;
+		border-radius: 10px;
+
+		top: 7px;
+	}
+
+	header.small>nav>ul>a:nth-child(2)>li {
+		background-size: 100%;
+		right: 168.5px;
+	}
+
+
+	header.small>nav>ul>a:nth-child(3)>li {
+		right: 25px;
+		font-size: 15px;
+		padding-top: 17.5px; height: 45px;
+	}
 
 section {
 	border: solid 11px #fff4d8;
@@ -368,6 +425,10 @@ body {
 
 #popup {
 	text-align: center;
+}
+
+.hidden {
+	display: none;
 }
 
 @media screen and (max-width: 360px) {

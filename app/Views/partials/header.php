@@ -32,9 +32,10 @@
  
  
 	<body onload="initialize()">
-		<div id="map_canvas"></div>
+		<div id="map_canvas" <?php if(!$map) echo 'class="hidden"'; ?>></div>
+		
 		<div id="app">
-			<header>
+			<header<?php if($smallHeader) echo ' class="small" '; ?>>
 				<!-- menu du haut -->
 				<nav>
 					<ul>
