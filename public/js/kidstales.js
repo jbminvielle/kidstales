@@ -65,10 +65,14 @@ var map = new google.maps.Map(document.getElementById("map_canvas"),
 }
 
 $(document).ready(function() {
+	parseHTML();
+});
+
+function parseHTML() {
 	//alert(document.documentElement.scrollHeight);
 	$('body>div#map_canvas').css('height', getDocHeight());
 
-	$('a').click(function(e) {
+	$('a, button[href]').click(function(e) {
 		e.preventDefault();
 		var src = $(this).attr('href');
 
@@ -83,8 +87,7 @@ $(document).ready(function() {
 	// 		changeUrl(window.location);
 	// 	}
 	// }
-});
-
+}
 
 function getDocHeight() {
 		var D = document;
@@ -102,9 +105,42 @@ function changeUrl(src) {
 		data: {ajax: true},
 		success: function(response){
 			if(typeof response != 'Object') response = JSON.parse(response); //verifying if we have json content
+
 			document.getElementById("ajaxContent").innerHTML = response.page_content;
 			document.title = response.page_title;
 			window.history.pushState({"html": response.page_content,"pageTitle": response.page_title},"", src);
+
+			closePopup();
+			parseHTML();
 		}
 	});
 }
+
+function openPopup(src) {
+	$.ajax({
+		type: "GET",
+		url: src,
+		data: {ajax: true},
+		success: function(response){
+			if(typeof response != 'Object') response = JSON.parse(response); //verifying if we have json content
+			
+			//create popup dom object
+			$('#popup_overlay').show();
+			//$('#popup').html(response.page_content)
+			var tmp = $('<div />').html(response.page_content).text();
+			$('#popup>div').html(tmp);
+
+			parseHTML();
+		}
+	});
+}
+
+function closePopup() {
+	$("#popup>div").html(' ');
+	$('#popup_overlay').hide();
+}
+
+
+
+
+

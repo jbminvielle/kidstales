@@ -1,9 +1,8 @@
 <?php
 
-// controlleurs pour les webservices
+// controler pour les webservices
+class Services_controller{
 
-class App_controller{
- 
 	function __construct(){
 
 	}
@@ -35,6 +34,11 @@ class App_controller{
 		//todo set $object with the new vote number
 	}
 
+	function searchForPlaces() {
+		$str = $_GET['str'];
+		//todo : récupérer les endroits en fonction d'une chaine de caractères
+	}
+
 	// Histoires
 
 	function upVoteHistoire() {
@@ -58,13 +62,16 @@ class App_controller{
 
 	// Intervenant
 
+	// Dashboard
+	function preKidsSpace() {
+		F3::set('object', array("page_content"=> Views::instance()->render('partials/preKidsSpace.php')));
+	}
 
 	// Adding automatically the view call
 	function afterRoute() {
 		F3::set('ajaxRequest',true);
 		echo Views::instance()->render('json.php');
 	}
-
 
 	function __destruct(){
 

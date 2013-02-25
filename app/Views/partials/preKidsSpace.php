@@ -1,26 +1,10 @@
-<section id="favoritePlaces">
-	<div>
-		<h1>Les endroits qu'on préfère</h1>
+<h1>Espace des enfants</h1>
 
-		<figure>
-			<img src="public/images/montreuilbellay.jpg" alt="Montreuil-Bellay" />
-			<figcaption>Montreuil-Bellay</figcaption>
-		</figure>
+<h2>Attention</h2>
+<p>Pour sortir de l'espace des enfants vous serez amené à taper votre mot de passe.</p>
 
-		<figure>
-			<img src="public/images/avignon.jpg" alt="Avignon" />
-			<figcaption>Avignon</figcaption>
-		</figure>
+<h2>Saisissez l'endroit que vous avez visité</h2>
+<input type="search" />
+<p>Ceci est très fortement recommandé, et consistue un guide d'expression pour les enfants.<br />Ils sont libres de le suivre ou non.</p>
 
-		<figure>
-			<img src="public/images/cantal.jpg" alt="Le Cantal" />
-			<figcaption>Le Cantal</figcaption>
-		</figure>
-		
-		<footer>
-			<p>Sélection de destinations<br />
-				<a href="howweelect">Savoir comment</a>
-			</p>
-		</footer>
-	</div>
-</section>
+<button href="kidsSpace">Lancer</button>

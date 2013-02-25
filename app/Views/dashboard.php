@@ -1,3 +1,6 @@
+
+
+
 <?php
 	if(!$ajaxRequest) require "partials/header.php"
 ?>
@@ -7,7 +10,7 @@
 				<div>
 
 					<h1>Suivi de mon groupe</h1>
-					<button>Laisser la main aux enfants</button><br />
+					<button onclick="openPopup('services/preKidsSpace')">Laisser la main aux enfants</button>
 
 					<p>
 					<!--début de la boucle-->

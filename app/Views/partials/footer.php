@@ -4,6 +4,8 @@
 			</footer>
 
 		</div>
+
+		<div id="popup_overlay"><section id="popup"><div></div></section></div>
 	</body>
  
 </html>

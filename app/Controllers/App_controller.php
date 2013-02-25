@@ -43,6 +43,11 @@ class App_controller{
 		$this->viewName = 'kidsSpace';
 	}
 
+	function preKidsSpace() {
+		$object = array('page_content'=> 'lol');
+		$this->viewName = 'dashboard';
+	}
+
 	//adding automatically the view call
 	function afterRoute() {
 
@@ -59,6 +64,7 @@ class App_controller{
 		}
 		else echo $html;
 	}
+
 
 	function __destruct(){
 
