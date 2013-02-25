@@ -16,7 +16,7 @@ class App_controller{
 
 	function explore() {
 		F3::set('viewTitle', "Kid's Tales - Explorer");
-		F3::set('smallHeader', false);
+		F3::set('smallHeader', true);
 		F3::set('map', true);
 		$this->viewName = 'explore';
 	}
