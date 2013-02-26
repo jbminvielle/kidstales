@@ -1,0 +1,51 @@
+/* map */
+
+.map_marker {
+	width: 327px;
+}
+
+.map_marker>div {
+	border: solid 11px #fff4d8;
+	background-image: url('images/grey_pattern.png');
+	box-shadow: 5px 5px 0px rgba(0,0,0,.25);
+	padding: 13px;
+}
+
+
+.map_marker_infos {
+	background-image: url('images/beige_pattern.png');
+	position: relative;
+	height: 140px;
+}
+
+.map_marker_infos>div {
+	position: absolute;
+	top: 0; left: 0;
+	padding-top: 12px;
+	height: 128px;
+	background: url(images/marker_cache.png) repeat-x center bottom, url(images/transparent_orange_pattern.png) repeat;
+}
+
+.map_marker_infos h3 {
+	font-family: 'amandinehandwriting';
+	font-size: 40px;
+	color: #ffefd3;
+	text-align: center;
+}
+
+.map_marker_infos p {
+	font-family: "Myriad Pro", Arial, sans-serif;
+	font-size: 14px;
+	color: #ffefd3;
+	text-align: center;
+}
+
+
+/* tests */
+
+.map_marker {
+	position: relative;
+
+	top: 140px;
+	left: 100px;
+}
