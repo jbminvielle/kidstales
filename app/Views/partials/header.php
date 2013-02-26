@@ -32,9 +32,7 @@
 	</head>
  
  
-	<body>
-		<div id="map_canvas" <?php if(!$map) echo 'class="hidden"'; ?>></div>
-		
+	<body>		
 		<div id="app">
 			<header<?php if($smallHeader) echo ' class="small" '; ?>>
 				<!-- menu du haut -->
