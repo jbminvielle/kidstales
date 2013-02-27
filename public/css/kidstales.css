@@ -445,6 +445,9 @@ body {
 	section {
 		border: none;
 		padding: 0;
+
+		width: 100%!important;
+		margin-left: 0!important;
 	}
 	#main {
 		width: 100%!important;
@@ -475,6 +478,7 @@ body {
 	}
 	section#explanations {
 		width: 100%;
+		margin :auto!important;
 	}
 	section#explanations>div {
 		padding: 10px;
@@ -507,6 +511,9 @@ body {
 		margin-left: -20px;
 	}
 
+	section#explanations {
+		margin :auto!important;
+	}
 
 	header>nav>ul li>h1 {
 		font-size: 65px;
