@@ -45,6 +45,17 @@ class App_controller{
 		F3::set('smallHeader', true);
 		F3::set('map', false);
 		$this->viewName = 'dashboard';
+		$id=F3::get('PARAMS.id');
+	    #récupération de la destination courante
+	    $Hist=new Histoire();
+	    $cont = $Hist->getHistoires("date", "2013-08-30 14:00:00");
+	    $result=array_map(function($item){return array('id'=>$item->id_histoire,
+	    											   'cont'=>$item->cont,
+	    											   'date'=>$item->date,
+	     											   'evaluation'=>$item->evaluation,
+	     											   'id_e'=>$item->id_enfant,
+	     											   'id_l'=>$item->id_lieu,);},$cont);
+	    echo json_encode($result);
 	}
 
 	function kidsSpace() {
