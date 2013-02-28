@@ -26,11 +26,6 @@ class Inter_controller{
                 $Inter=new Intervenant();
                 $session = 0; //à modifier avec la session de l'inter
                 $arraydenfants = "kikoo";
-                
-
-
-                if(!)
-
                 break;
     }
 

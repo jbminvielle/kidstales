@@ -61,6 +61,24 @@ class Services_controller{
 	}
 
 	// Intervenant
+	function addChild(){
+        switch(F3::get('VERB')){
+            case 'GET':
+                echo Views::instance()->render('registerKids.php');
+                break;
+
+            case 'POST':
+                //$_POST('inputname');
+                $Inter=new Intervenant();
+                $session = 0; //à modifier avec la session de l'inter
+                $arraydenfants = "kikoo";
+                foreach($arraydenfants as $value)
+                {
+                	
+                }
+                break;
+        }
+    }
 
 	// Dashboard
 	function preKidsSpace() {
