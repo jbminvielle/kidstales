@@ -70,11 +70,12 @@ class Services_controller{
             case 'POST':
                 //$_POST('inputname');
                 $Inter=new Intervenant();
-                $session = 0; //à modifier avec la session de l'inter
-                $arraydenfants = "kikoo";
+                $session = $Inter->getInterSession($intervenant_connecte); // Je ne sais pas comment le récupérer, l'intervenant tel un mapper dans la bdd
+                $arraydenfants = "kikoo"; //A choper en JS je présume.
+
                 foreach($arraydenfants as $value)
                 {
-                	
+                	addChild($value , $intervenant_connecte)
                 }
                 break;
         }

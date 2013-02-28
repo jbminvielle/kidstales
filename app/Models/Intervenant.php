@@ -14,18 +14,18 @@ class Intervenant extends Prefab{
 
   }
 
-  function getInterSession{
+  function getInterSession($intervenant){
     //A faire 
     //Je suppose qu'il y a un truc du style les récupérer dans la bdd selon l'account ouvert, sinon j'aurai fait ça
     /*
       $session=new DB\SQL\Mapper(F3::get('dB'),'session');
-      $session->load(array('id_intervenant=?',$id_inter)); //Avec $id_inter, l'id du mec actuellement connecté.
-      
+      return $session->load(array('id_intervenant=?',$id_inter))->name; //Avec $id_inter, l'id du mec actuellement connecté.
+    */
   }
 
+    
 
-
-  function addChild($object, $object2){
+  function addChild($object , $object2){ //Object est l'enfant, object2 est l'inter connecté
     $enfant=new DB\SQL\Mapper(F3::get('dB'),'enfant');
     $enfant->id_enfant = $object->id_enfant;
     $enfant->prenom = $object->prenom;
@@ -35,6 +35,8 @@ class Intervenant extends Prefab{
     $enfant->save();
     $session=new DB\SQL\Mapper(F3::get('dB'),'session');
     $session->id_enfant = $object->id_enfant;
+    $session->id_inter =  $object2->id_inter;
+    $session->save();
   }
   function __destruct(){
 
