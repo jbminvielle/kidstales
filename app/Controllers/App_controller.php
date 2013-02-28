@@ -48,14 +48,14 @@ class App_controller{
 		$id=F3::get('PARAMS.id');
 	    #récupération de la destination courante
 	    $Hist=new Histoire();
-	    $cont = $Hist->getHistoires("date", "2013-08-30 14:00:00");
+	    $cont = $Hist->getHistoires();
 	    $result=array_map(function($item){return array('id'=>$item->id_histoire,
 	    											   'cont'=>$item->cont,
-	    											   'date'=>$item->date,
+	    											   'datetime'=>$item->date,
 	     											   'evaluation'=>$item->evaluation,
 	     											   'id_e'=>$item->id_enfant,
 	     											   'id_l'=>$item->id_lieu,);},$cont);
-	    echo json_encode($result);
+	    echo json_encode($result[1]['datetime']);
 	}
 
 	function kidsSpace() {
