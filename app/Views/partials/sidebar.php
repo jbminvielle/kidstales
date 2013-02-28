@@ -1,4 +1,4 @@
-<section id="favoritePlaces">
+<section id="sidebar">
 	<div>
 		<h1>Les endroits qu'on préfère</h1>
 

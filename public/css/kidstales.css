@@ -223,36 +223,36 @@ section>div {
 	background-image: url('images/beige_pattern.png');
 }
 
-section#favoritePlaces {
+section#sidebar {
 	margin-left: 20px;
 	position: absolute;
 	top: 197px;
 	width: 279px;
 }
 
-section#favoritePlaces>div {
+section#sidebar>div {
 	padding-top: 20px;
 	text-align: center;
 }
 
-section#favoritePlaces h1 {
+section#sidebar h1 {
 	font-family: 'amandinehandwriting';
 	font-size: 22px;
 	color: #f26516;
 	margin-bottom: 10px;
 }
 
-section#favoritePlaces figure {
+section#sidebar figure {
 	position: relative;
 	height: 140px;
 }
 
-section#favoritePlaces figure>img{
+section#sidebar figure>img{
 	position: relative;
 	z-index: 3;
 }
 
-section#favoritePlaces figure>figcaption {
+section#sidebar figure>figcaption {
 	position: absolute;
 	top: 0;
 	z-index: 3;
@@ -267,7 +267,7 @@ section#favoritePlaces figure>figcaption {
 	box-shadow: inset 0px 0px 8px rgba(0,0,0,.4);
 }
 
-section#favoritePlaces footer {
+section#sidebar footer {
 	padding: 10px;
 	padding-top: 13px;
 	background: url(images/minimap.png) no-repeat left 10px;
@@ -278,7 +278,7 @@ section#favoritePlaces footer {
 	font-weight: bold;
 	color: #f26516;
 }
-section#favoritePlaces footer a {
+section#sidebar footer a {
 	font-weight: normal;
 	color: #4d483f;
 }
@@ -544,7 +544,7 @@ body {
 		margin-left: 0px!important;
 	}
 
-	section#favoritePlaces {
+	section#sidebar {
 		position: inherit;
 		margin: auto;
 		margin-top: 40px;
