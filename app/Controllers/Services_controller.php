@@ -9,7 +9,7 @@ class Services_controller{
 
 	// Lieu
 
-	function getBestPlaces(){
+/*	function getBestPlaces(){
 		$coords = array(
 			'min_lat' => $_GET['min_lat'],
 			'max_lat' => $_GET['max_lat'],
@@ -20,7 +20,16 @@ class Services_controller{
 		if(!isset($_GET['limite']))
 			F3::set('object', Lieu::instance()->getMeilleursLieu($coords));
 		else F3::set('object', Lieu::instance()->getMeilleursLieu($coords, $_GET['limite']));
-	}
+	}*/
+
+	function getBestPlaces(){
+
+$Lieu=new Lieu
+$cont =  $Lieu -> getMeilleursLieu();
+
+echo json_encode()
+
+}
 
 	function upVoteLieu() {
 		$id = $_GET['id'];

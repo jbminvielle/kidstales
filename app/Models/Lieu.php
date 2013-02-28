@@ -8,17 +8,17 @@ class Lieu extends Prefab{
         F3::get('db_pw')));
   }
 
-  function getMeilleursLieu($array, $limite=10) {
 
-  	//todo : appeler la base de donnée, selectionner les meilleurs lieux triés par note, en limitant à $limite
+  
+ function getMeilleursLieu($coords, $limite=10) {
+// todo: qd on a cliqué sur le script, la latlgn sont affichés, sur cet event, appeler la bd, selectionner les meilleurs lieux triés par note
+$getMeilleursLieu=new DB\SQL\Mapper(F3::get('dB'),'lieu');
+return$getMeilleursLieu->find(array());
 
-  	return $meilleursLieu;
-  }
+}
 
 
   function addLieu($lat, $lng, $cont, $lieu) {
-
-  }
 
   	//todo : appeler la base de donnée, ajouter le lieu dedans avec ces informations
 
