@@ -11,11 +11,11 @@ class Histoire extends Prefab{
 
 	}
 
-	function getHistoires($attr, $value){
+	function getHistoires(){
 
 		$getHistoires=new DB\SQL\Mapper(F3::get('dB'),'histoire');
-        return $getHistoires->find(array($attr.'<?', $value),array('order'=>'date'),array('DESC LIMIT'=>'5'));
-
+        return $getHistoires->find(NULL,array('order'=>'evaluation'),array('DESC LIMIT'=>5));
+        
 	}
 
 	function addHistoires($contenu, $idEnfant, $idLieu, $medias, $date='today'){
