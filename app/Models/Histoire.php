@@ -14,7 +14,7 @@ class Histoire extends Prefab{
 	function getHistoires(){
 
 		$getHistoires=new DB\SQL\Mapper(F3::get('dB'),'histoire');
-        return $getHistoires->find(NULL,array('order'=>'evaluation'),array('DESC LIMIT'=>5));
+        return $getHistoires->find(NULL,array('order'=>'evaluation'));
         
 	}
 

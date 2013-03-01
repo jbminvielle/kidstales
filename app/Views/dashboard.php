@@ -17,7 +17,8 @@
 						
 						<div class="dashboard_element">
 							<span class="datetime">
-								Il y a 5 heures
+								<script type=text/javascript>
+								</script>
 							</span>
 
 							<span class="picture">

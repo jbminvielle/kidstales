@@ -47,15 +47,28 @@ class App_controller{
 		$this->viewName = 'dashboard';
 		$id=F3::get('PARAMS.id');
 	    #récupération de la destination courante
+
+	    
 	    $Hist=new Histoire();
-	    $cont = $Hist->getHistoires();
+	    $cont = $Hist->getHistoires();	    
 	    $result=array_map(function($item){return array('id'=>$item->id_histoire,
 	    											   'cont'=>$item->cont,
 	    											   'datetime'=>$item->date,
 	     											   'evaluation'=>$item->evaluation,
 	     											   'id_e'=>$item->id_enfant,
-	     											   'id_l'=>$item->id_lieu,);},$cont);
-	    echo json_encode($result[1]['datetime']);
+	     											   'id_l'=>$item->id_lieu);},$cont);	     
+	     F3::set('result',json_encode($result));
+
+	     $Child = new Intervenant();
+	     $enfants = $Child->getChilds();
+	     $result2=array_map(function($item){return array('id'=>$item->id_enfant,
+	    											   'prenom'=>$item->prenom,
+	    											   'mail'=>$item->mail,
+	     											   'mdp'=>$item->mdp,
+	     											   'sexe'=>$item->sexe);},$enfants);	     
+	     F3::set('result2',json_encode($result2));
+	  
+
 	}
 
 	function kidsSpace() {
