@@ -350,7 +350,7 @@ section#explanations h3, section#explanations p {margin: 20px 7%;}
 
 section#explanations article {
 	display: inline-block;
-	max-width: 31.7%;
+	width: 31.7%;
 	vertical-align: bottom;
 	text-align: center;
 	padding: 0.5%;
@@ -469,6 +469,10 @@ body {
 
 	nav {
 		padding: 0 20px !important;
+	}
+
+	section#explanations h1 {
+		font-size: 60px;
 	}
 }
 
