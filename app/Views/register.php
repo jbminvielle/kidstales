@@ -5,6 +5,14 @@
  		<div id="main">
 			<section id="explanations">
 				<div>
+						<form class="inline" id="login">
+
+							<input type="text" name="mail" placeholder="mail" />
+							<input type="password" name="password" placeholder="mot de passe" />
+							<input type="submit" value="Entrer" />
+						</form>
+
+
 					<h1>S'inscrire</span></h1>
 					<h2>C'est rapide et gratuit !</h2>
 
