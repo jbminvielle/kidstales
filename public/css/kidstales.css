@@ -149,7 +149,7 @@ header>nav>ul>a:nth-child(2)>li {
 }
 
 
-header>nav>ul>a:nth-child(3)>li {
+header>nav>ul>a>li.text_based {
 	right: 50px;
 	font-size: 30px;
 	text-align: center;
@@ -161,7 +161,7 @@ header>nav>ul>a:nth-child(3)>li {
 	-webkit-transition: right 0.2s, font-size 0.2s, width 0.2s, height 0.2s;
 }
 
-header>nav>ul>a:nth-child(3)>li:active {
+header>nav>ul>a>li.text_based:active {
 	text-shadow: 1px 1px 0px rgba(0,0,0,.25);
 
 }
@@ -204,7 +204,7 @@ header>nav>ul>a:nth-child(3)>li:active {
 	}
 
 
-	header.small>nav>ul>a:nth-child(3)>li {
+	header.small>nav>ul>a>li.text_based {
 		right: 25px;
 		font-size: 15px;
 		padding-top: 17.5px; height: 45px;
@@ -546,7 +546,7 @@ body {
 	}
 
 
-	header>nav>ul>a:nth-child(3)>li {
+	header>nav>ul>a>li.text_based {
 		right: 25px;
 		font-size: 15px;
 		padding-top: 17.5px; height: 45px;

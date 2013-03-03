@@ -26,10 +26,17 @@ class Intervenant extends Prefab{
   /* 
    * Returns an intervenant object
    */
-
   function checkLogin($mail, $password) {
-    $intervenants = new DB\SQL\Mapper(F3::get('dB'),'intervenant');
-    return $enfantsDB->find(NULL,array('mail'=>$mail, 'mdp'=>$password));
+    $intervenantsMapper = new DB\SQL\Mapper(F3::get('dB'),'intervenant');
+    return $intervenantsMapper->find(array('mail="'.$mail.'" AND mdp="'.$password.'"'));
+  }
+
+  /* 
+   * Returns an intervenant object
+   */
+  function getIntervenantById($id) {
+    $intervenantsMapper = new DB\SQL\Mapper(F3::get('dB'),'intervenant');
+    return $intervenantsMapper->find(array('id_intervenant=?', $id));
   }
     
 

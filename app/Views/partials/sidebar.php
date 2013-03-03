@@ -4,7 +4,6 @@
 		<?php 
 
 		//version quand on est pas identifié
-
 		if(!$connected) { ?>
 			<h1>Les endroits qu'on préfère</h1>
 
@@ -61,7 +60,13 @@
 					break;
 				
 				default:
-					# code...
+					?>
+					<p>
+						<a>Nouvelle session</a>
+						<a>Lancer une nouvelle session</a>
+					</p>
+
+					<?php
 					break;
 			}
 		} ?>

@@ -7,14 +7,37 @@ class App_controller{
 
 	}
 
-	//verifying automatically the login
+	//verifying automatically the login before anything else
 	function beforeRoute() {
+
+		F3::set('connected', false);
+		F3::set('user', null);
+
 		//1) check if visitor just logged in
 		if(isset($_POST['login_mail']) && isset($_POST['login_password'])) {
-			echo 'tentative de connexion';
 			//verifying if logins are ok :
-			$login = Intervenant::instance()->checkLogin($_GET['login_id'], $_GET['login_password']);
-			print_r($login);
+			$login = Intervenant::instance()->checkLogin($_POST['login_mail'], $_POST['login_password']);
+			//if ok, save it into the session
+			if(count($login) == 1) {
+				F3::set("SESSION.user", $login[0]->id_intervenant);
+
+				//set F3 vars for the session
+				F3::set('connected', true);
+				F3::set('user', Intervenant::instance()->getIntervenantById(F3::get("SESSION.user")));
+
+				//finally redirect to explore page
+				//header('Location: explore');
+			}
+			else F3::set('login_error', 'WRONG_MAIL_OR_PASSWORD');
+		}
+		else if(isset($_POST['login_mail']) || isset($_POST['login_password']))
+			F3::set('login_error', 'SET_MAIL_AND_PASSWORD');
+
+		//2) check if a session exists
+		else if (F3::exists("SESSION.user")) {
+			//set F3 vars for the session
+			F3::set('connected', true);
+			F3::set('user', Intervenant::instance()->getIntervenantById(F3::get("SESSION.user")));
 		}
 	}
 
@@ -39,8 +62,9 @@ class App_controller{
 		F3::set('viewName', 'register');
 	}
 
-    function registerKids() {
-		//todo :get signup informations for session
+	function registerKids() {
+		//get signup informations
+		if(!self::checkConnexion()) return false;
 
 		F3::set('viewTitle', "Kid's Tales - Inscrire un groupe");
 		F3::set('smallHeader', true);
@@ -50,7 +74,8 @@ class App_controller{
 	}
 
 	function dashboard() {
-		//todo : get kids and signup infos for session
+		//get signup informations
+		if(!self::checkConnexion()) return false;
 
 		F3::set('viewTitle', "Kid's Tales - Tableau de bord");
 		F3::set('smallHeader', true);
@@ -84,12 +109,21 @@ class App_controller{
 	}
 
 	function kidsSpace() {
-		//todo : get kids list and signup infos for session (and logout from kidsplace)
+		//get signup informations
+		if(!self::checkConnexion()) return false;
 
 		F3::set('viewTitle', "Kid's Tales - Espace enfant");
 		F3::set('smallHeader', true);
 		F3::set('map', false);
 		F3::set('viewName', 'kidsSpace');
+	}
+
+	function checkConnexion() {
+		if(!F3::set('connected')) {
+			header('HTTP/1.0 403 Forbidden');
+			return false;
+		}
+		return true;
 	}
 
 	//adding automatically the view call
