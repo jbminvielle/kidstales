@@ -3,6 +3,20 @@ $(document).ready(function() {
 	launchGoogleMaps();
 });
 
+
+
+//Ajout dynamique de LI pour les marmots.
+
+$("#dynamicAdd p input+button").click(function{
+	
+	
+});
+
+
+
+
+
+
 function parseHTML() {
 	//alert(document.documentElement.scrollHeight);
 	$('body>div#map_canvas').css('height', $(window).height());
