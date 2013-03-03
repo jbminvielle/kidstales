@@ -19,7 +19,7 @@
 								<option value="0" label="fille" />
 							</select>
 							<input type="text" name="kids_parents_name" placeholder="Mail de ses parents" />
-							<button>Ajouter</button>
+							<button class="bouton">Ajouter</button>
 						</p>
 
 						<p>
