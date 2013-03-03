@@ -27,7 +27,7 @@ class Services_controller{
 $Lieu=new Lieu
 $cont =  $Lieu -> getMeilleursLieu();
 
-echo json_encode()
+echo json_encode();
 
 }
 

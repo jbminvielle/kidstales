@@ -1,17 +1,26 @@
 /* forms */
 
-form:not(#dynamicAdd) input {
+form:not(.inline) input {
 	margin: 4px;
 	padding: 4px;
 
 	margin-left: 210px;
 }
 
-form:not(#dynamicAdd) input[type=text], input[type=password] {
+form:not(.inline) input[type=text], form:not(.inline) input[type=password] {
 	width: 150px;
 
 	position: relative;
 	bottom: 6px;
+}
+
+form#login {
+	text-align: center;
+}
+
+form#login input {
+	font-size: 20px;
+	padding: 5px;
 }
 
 label.info {

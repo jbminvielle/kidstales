@@ -296,7 +296,7 @@ section#explanations {
 section#explanations>div, #popup>div {
 	padding: 3%;
 	padding-bottom: 20px;
-	padding-top: 40px;
+	padding-top: 20px;
 	position: relative;
 }
 
@@ -305,6 +305,7 @@ section#explanations h1 {
 	font-size: 84px;
 	line-height: 64px;
 	margin: auto; text-align: center;
+	margin-top: 20px;
 	letter-spacing: -5.6px;
 
 	font-family: 'sketch_blockbold';
@@ -350,7 +351,7 @@ section#explanations h3, section#explanations p {margin: 20px 7%;}
 
 section#explanations article {
 	display: inline-block;
-	max-width: 31.7%;
+	width: 31.7%;
 	vertical-align: bottom;
 	text-align: center;
 	padding: 0.5%;
@@ -445,6 +446,9 @@ body {
 	section {
 		border: none;
 		padding: 0;
+
+		width: 100%!important;
+		margin-left: 0!important;
 	}
 	#main {
 		width: 100%!important;
@@ -467,6 +471,10 @@ body {
 	nav {
 		padding: 0 20px !important;
 	}
+
+	section#explanations h1 {
+		font-size: 60px;
+	}
 }
 
 @media screen and (max-width: 630px) {
@@ -475,6 +483,7 @@ body {
 	}
 	section#explanations {
 		width: 100%;
+		margin :auto!important;
 	}
 	section#explanations>div {
 		padding: 10px;
@@ -507,6 +516,9 @@ body {
 		margin-left: -20px;
 	}
 
+	section#explanations {
+		margin :auto!important;
+	}
 
 	header>nav>ul li>h1 {
 		font-size: 65px;

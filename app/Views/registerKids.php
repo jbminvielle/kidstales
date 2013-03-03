@@ -10,7 +10,7 @@
 					<button>Importer un groupe existant</button><br />
 					<small>Vous pourrez modifier le groupe par la suite</small>
 
-					<form id="dynamicAdd">
+					<form id="dynamicAdd" class="inline">
 						<p>
 							<input type="text" name="kids_surname" placeholder="Prénom" />
 							<select name="kids_sex">
