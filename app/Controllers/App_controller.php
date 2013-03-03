@@ -11,21 +11,21 @@ class App_controller{
 		F3::set('viewTitle', "Kid's Tales");
 		F3::set('smallHeader', false);
 		F3::set('map', true);
-		$this->viewName = 'index';
+		F3::set('viewName', 'index');
 	}
 
 	function explore() {
 		F3::set('viewTitle', "Kid's Tales - Explorer");
 		F3::set('smallHeader', true);
 		F3::set('map', true);
-		$this->viewName = 'explore';
+		F3::set('viewName', 'explore');
 	}
 
 	function register() {
 		F3::set('viewTitle', "Kid's Tales - S'inscrire");
 		F3::set('smallHeader', true);
 		F3::set('map', true);
-		$this->viewName = 'register';
+		F3::set('viewName', 'register');
 	}
 
     function registerKids() {
@@ -35,7 +35,7 @@ class App_controller{
 		F3::set('smallHeader', true);
 		F3::set('map', false);
 
-		$this->viewName = 'registerKids';
+		F3::set('viewName', 'registerKids');
 	}
 
 	function dashboard() {
@@ -44,7 +44,8 @@ class App_controller{
 		F3::set('viewTitle', "Kid's Tales - Tableau de bord");
 		F3::set('smallHeader', true);
 		F3::set('map', false);
-		$this->viewName = 'dashboard';
+		F3::set('viewName', 'dashboard');
+
 		$id=F3::get('PARAMS.id');
 	    #récupération de la destination courante
 
@@ -77,12 +78,7 @@ class App_controller{
 		F3::set('viewTitle', "Kid's Tales - Espace enfant");
 		F3::set('smallHeader', true);
 		F3::set('map', false);
-		$this->viewName = 'kidsSpace';
-	}
-
-	function preKidsSpace() {
-		$object = array('page_content'=> 'lol');
-		$this->viewName = 'dashboard';
+		F3::set('viewName', 'kidsSpace');
 	}
 
 	//adding automatically the view call
@@ -92,7 +88,7 @@ class App_controller{
 		if(isset($_GET['ajax'])) F3::set('ajaxRequest', true);
 		else F3::set('ajaxRequest', false);
 
-		$html = Views::instance()->render($this->viewName.'.php');
+		$html = Views::instance()->render(F3::get('viewName').'.php');
 
 		if(F3::get('ajaxRequest')) {
 			echo json_encode(array(
