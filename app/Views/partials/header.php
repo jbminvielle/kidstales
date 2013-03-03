@@ -45,7 +45,7 @@
 							<a href="register" title="S'inscrire à l'outil"><li class="text_based">Inscription<br />Connexion</li></a>
 						<?php } else { ?>
 							<a href="dashboard" title="Dashboard"><li class="text_based">Tableau<br />de bord</li></a>
-							<a href="services/signout" title="Déconnexion"><li class="text_based to_responsively_hide">Decon-<br />nexion</li></a>
+							<a href="services/signout" title="Déconnexion"><li class="text_based to_responsively_hide">Decon-<br />nection</li></a>
 
 						<?php } ?>
 					</ul>
