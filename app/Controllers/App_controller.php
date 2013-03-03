@@ -7,6 +7,17 @@ class App_controller{
 
 	}
 
+	//verifying automatically the login
+	function beforeRoute() {
+		//1) check if visitor just logged in
+		if(isset($_POST['login_mail']) && isset($_POST['login_password'])) {
+			echo 'tentative de connexion';
+			//verifying if logins are ok :
+			$login = Intervenant::instance()->checkLogin($_GET['login_id'], $_GET['login_password']);
+			print_r($login);
+		}
+	}
+
 	function home(){
 		F3::set('viewTitle', "Kid's Tales");
 		F3::set('smallHeader', false);

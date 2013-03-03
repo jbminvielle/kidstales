@@ -5,10 +5,10 @@
  		<div id="main">
 			<section id="explanations">
 				<div>
-						<form class="inline" id="login">
+						<form class="inline" id="login" name="login" action="explore" method="post">
 
-							<input type="text" name="mail" placeholder="mail" />
-							<input type="password" name="password" placeholder="mot de passe" />
+							<input type="text" name="login_mail" placeholder="mail" />
+							<input type="password" name="login_password" placeholder="mot de passe" />
 							<input type="submit" value="Entrer" />
 						</form>
 
