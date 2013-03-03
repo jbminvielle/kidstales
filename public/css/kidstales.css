@@ -117,7 +117,7 @@ header>nav>ul li>h1 span {
 	font-size: 0.81em;
 }
 
-header>nav>ul>a:nth-child(2)>li, header>nav>ul>a:nth-child(3)>li {
+header>nav>ul>a:not(:first-child)>li {
 	vertical-align: top;
 	width: 257px; height: 125px;
 	margin-left: 10px;
@@ -133,24 +133,28 @@ header>nav>ul>a:nth-child(2)>li, header>nav>ul>a:nth-child(3)>li {
 	-webkit-transition: width 0.2s, height 0.2s, margin-left 0.2s, border 0.2s, border-radius 0.2s, top 0.2s;
 }
 
-header>nav>ul>a:nth-child(2)>li:active, header>nav>ul>a:nth-child(3)>li:active {
+header>nav>ul>a:not(:first-child)>li:active {
 	box-shadow: 1px 1px 0px rgba(0,0,0,.25);
 	-webkit-transform: translate(2px, 2px);
 }
 
-header>nav>ul>a:nth-child(2)>li {
+header>nav>ul>a[href=explore]>li {
 	background: url('images/explore_button.png') no-repeat center;
 	font-size: 0;
 
 	color: #514c43;
-	right: 337px;
-
 	-webkit-transition: right 0.2s;
 }
 
+header>nav>ul>a:nth-child(2)>li {
+	right: 337px;
+}
+
+header>nav>ul>a:nth-child(3)>li {
+	right: 50px;
+}
 
 header>nav>ul>a>li.text_based {
-	right: 50px;
 	font-size: 30px;
 	text-align: center;
 	padding-top: 35px; height: 90px;
@@ -187,8 +191,7 @@ header>nav>ul>a>li.text_based:active {
 		letter-spacing: -3px;
 	}
 
-
-	header.small>nav>ul>a:nth-child(2)>li, header.small>nav>ul>a:nth-child(3)>li {
+	header.small>nav>ul>a:not(:first-child)>li {
 		width: 128px; height: 62.5px;
 		margin-left: 5px;
 
@@ -196,6 +199,7 @@ header>nav>ul>a>li.text_based:active {
 		border-radius: 10px;
 
 		top: 7px;
+		font-size: 15px;
 	}
 
 	header.small>nav>ul>a:nth-child(2)>li {
@@ -204,9 +208,8 @@ header>nav>ul>a>li.text_based:active {
 	}
 
 
-	header.small>nav>ul>a>li.text_based {
+	header.small>nav>ul>a:nth-child(3)>li {
 		right: 25px;
-		font-size: 15px;
 		padding-top: 17.5px; height: 45px;
 	}
 
@@ -459,7 +462,7 @@ body {
 
 @media screen and (max-width: 490px) {
 	
-	header>nav>ul>a:nth-child(2) {
+	header>nav>ul>a>li.to_responsively_hide {
 		display: none;
 	}
 
@@ -530,7 +533,7 @@ body {
 	}
 
 
-	header>nav>ul>a:nth-child(2)>li, header>nav>ul>a:nth-child(3)>li {
+	header>nav>ul>a:not(:first-child)>li {
 		width: 128px; height: 62.5px;
 		margin-left: 5px;
 
@@ -545,9 +548,12 @@ body {
 		right: 168.5px;
 	}
 
+	header>nav>ul>a:nth-child(3)>li {
+		background-size: 100%;
+		right: 25px;
+	}
 
 	header>nav>ul>a>li.text_based {
-		right: 25px;
 		font-size: 15px;
 		padding-top: 17.5px; height: 45px;
 	}
