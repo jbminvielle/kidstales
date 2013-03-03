@@ -3,7 +3,7 @@ class Intervenant extends Prefab{
   
   function __construct(){
       F3::set('dB',new DB\SQL(
-        'mysql:host='.F3::get('db_host').';port=3306;dbname='.F3::get('db_server'),
+        'mysql:host='.F3::get('db_host').';port='.F3::get('db_port').';dbname='.F3::get('db_server'),
         F3::get('db_user'),
         F3::get('db_pw')));
   }
@@ -23,6 +23,14 @@ class Intervenant extends Prefab{
     */
   }
 
+  /* 
+   * Returns an intervenant object
+   */
+
+  function checkLogin($mail, $password) {
+    $intervenants = new DB\SQL\Mapper(F3::get('dB'),'intervenant');
+    return $enfantsDB->find(NULL,array('mail'=>$mail, 'mdp'=>$password));
+  }
     
 
   function addChild($object , $object2){ //Object est l'enfant, object2 est l'inter connecté

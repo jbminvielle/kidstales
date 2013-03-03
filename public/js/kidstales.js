@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 //Ajout dynamique de LI pour les marmots.
 
-$(".bouton").click(function(e){
+$(".addLine").click(function(e){
 	e.preventDefault();
 	// ecrire "
 	console.log('bitch');
