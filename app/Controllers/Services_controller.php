@@ -24,12 +24,12 @@ class Services_controller{
 
 	function getBestPlaces(){
 
-$Lieu=new Lieu
-$cont =  $Lieu -> getMeilleursLieu();
+		$Lieu=new Lieu;
+		$cont =  $Lieu -> getMeilleursLieu();
 
-echo json_encode();
+		echo json_encode();
 
-}
+	}
 
 	function upVoteLieu() {
 		$id = $_GET['id'];
@@ -84,7 +84,7 @@ echo json_encode();
 
                 foreach($arraydenfants as $value)
                 {
-                	addChild($value , $intervenant_connecte)
+                	addChild($value , $intervenant_connecte);
                 }
                 break;
         }

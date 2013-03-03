@@ -7,9 +7,11 @@ $(document).ready(function() {
 
 //Ajout dynamique de LI pour les marmots.
 
-$("#dynamicAdd p input+button").click(function{
-	
-	
+$("#dynamicAdd p input+button").click(function(){
+	// ecrire "
+	$("#dynamicAdd").append("<p><input type="text" name="kids_surname" placeholder="Prénom" /><select name="kids_sex"><option value="null" label="sexe..." selected disabled /><option value="1" label="garçon" /><option value="0" label="fille" /></select><input type="text" name="kids_parents_name" placeholder="Mail de ses parents" /><button>Ajouter</button></p><p><input type="submit" value="Inscrire ce groupe" /></p>");
+	return false;
+
 });
 
 
