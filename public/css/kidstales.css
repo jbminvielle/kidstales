@@ -41,7 +41,7 @@ body {
 }
 
 body>div#app {
-	position: relative;
+	position: absolute;
 	width:100%;
 	top: 0;
 	left: 0;
@@ -372,8 +372,8 @@ section#explanations strong {
 	margin-top: 40px;
 }
 
-body>div>footer {
-	position: absolute;
+body>footer {
+	position: fixed;
 	bottom: 0px;
 	text-align: center;
 	width: 100%;
@@ -385,7 +385,7 @@ body>div>footer {
 
 	z-index: 10
 }
-body>div>footer>p {
+body>footer>p {
 	margin: 3px
 }
 

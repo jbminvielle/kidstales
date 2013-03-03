@@ -21,6 +21,7 @@ form#login {
 form#login input {
 	font-size: 20px;
 	padding: 5px;
+	width: 140px;
 }
 
 label.info {
