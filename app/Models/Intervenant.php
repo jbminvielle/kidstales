@@ -24,8 +24,8 @@ class Intervenant extends Prefab{
       return $session->load(array('id_intervenant=?',$id_inter))->name; //Avec $id_inter, l'id du mec actuellement connecté.
     */
 
-      return F3::get('dB')->exec(" SELECT DISTINCT session.id_intervenant FROM session WHERE 
-                                    session.date_debut = ".$date_debut." AND session.date_fin = ".$date_fin);
+     /* return F3::get('dB')->exec(" SELECT DISTINCT session.id_intervenant FROM session WHERE 
+                                    session.date_debut = ".$date_debut." AND session.date_fin = ".$date_fin);*/
   }
   
 
