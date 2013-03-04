@@ -7,6 +7,11 @@ class Services_controller{
 
 	}
 
+	//verifying automatically the login before anything else
+	function beforeRoute() {
+		Intervenant::instance()->checkLogin();
+	}
+
 	// Lieu
 
 /*	function getBestPlaces(){
@@ -88,6 +93,14 @@ class Services_controller{
                 }
                 break;
         }
+    }
+
+    function signout() {
+    	F3::clear('user');
+    	F3::set('connected', false);
+    	F3::clear('SESSION.user');
+
+    	F3::set('object', array('redirect'=> '../explore'));
     }
 
 	// Dashboard

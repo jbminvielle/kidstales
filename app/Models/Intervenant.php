@@ -14,22 +14,49 @@ class Intervenant extends Prefab{
 
   }
 
-  function getInterSession($intervenant){
+
+
+  function getInterSession($date_debut,$date_fin){
     //A faire 
     //Je suppose qu'il y a un truc du style les récupérer dans la bdd selon l'account ouvert, sinon j'aurai fait ça
     /*
       $session=new DB\SQL\Mapper(F3::get('dB'),'session');
       return $session->load(array('id_intervenant=?',$id_inter))->name; //Avec $id_inter, l'id du mec actuellement connecté.
     */
+
+     /* return F3::get('dB')->exec(" SELECT DISTINCT session.id_intervenant FROM session WHERE 
+                                    session.date_debut = ".$date_debut." AND session.date_fin = ".$date_fin);*/
+  }
+  
+
+  function getIdEnfants($id_inter, $date_debut){
+
+    return F3::get('dB')->exec(" SELECT session.id_enfant FROM session WHERE
+                                 session.id_intervenant = ".$id_inter." AND   session.date_debut = ".$date_debut);
+
+  }
+
+  function getNomEnfant($id_hs){
+
+    return F3::get('dB')->exec("SELECT enfant.prenom FROM enfant, histoire WHERE id_histoire = ".$id_hs." 
+                              AND histoire.id_enfant = enfant.id_enfant ");
+
   }
 
   /* 
    * Returns an intervenant object
    */
+  function getIntervenantByMailAndPassword($mail, $password) {
+    $intervenantsMapper = new DB\SQL\Mapper(F3::get('dB'),'intervenant');
+    return $intervenantsMapper->find(array('mail="'.$mail.'" AND mdp="'.$password.'"'));
+  }
 
-  function checkLogin($mail, $password) {
-    $intervenants = new DB\SQL\Mapper(F3::get('dB'),'intervenant');
-    return $enfantsDB->find(NULL,array('mail'=>$mail, 'mdp'=>$password));
+  /* 
+   * Returns an intervenant object
+   */
+  function getIntervenantById($id) {
+    $intervenantsMapper = new DB\SQL\Mapper(F3::get('dB'),'intervenant');
+    return $intervenantsMapper->find(array('id_intervenant=?', $id));
   }
     
 
@@ -48,6 +75,38 @@ class Intervenant extends Prefab{
   }
   function __destruct(){
 
+  }
+
+  function checkLogin() {
+    F3::set('connected', false);
+    F3::set('user', null);
+
+    //1) check if visitor just logged in
+    if(isset($_POST['login_mail']) && isset($_POST['login_password'])) {
+      //verifying if logins are ok :
+      $login = Intervenant::instance()->getIntervenantByMailAndPassword($_POST['login_mail'], $_POST['login_password']);
+      //if ok, save it into the session
+      if(count($login) == 1) {
+        F3::set("SESSION.user", $login[0]->id_intervenant);
+
+        //set F3 vars for the session
+        F3::set('connected', true);
+        F3::set('user', Intervenant::instance()->getIntervenantById(F3::get("SESSION.user")));
+
+        //finally redirect to explore page
+        header('Location: explore');
+      }
+      else F3::set('login_error', 'WRONG_MAIL_OR_PASSWORD');
+    }
+    else if(isset($_POST['login_mail']) || isset($_POST['login_password']))
+      F3::set('login_error', 'SET_MAIL_AND_PASSWORD');
+
+    //2) check if a session exists
+    else if (F3::exists("SESSION.user")) {
+      //set F3 vars for the session
+      F3::set('connected', true);
+      F3::set('user', Intervenant::instance()->getIntervenantById(F3::get("SESSION.user"))[0]);
+    }
   }
 }
 

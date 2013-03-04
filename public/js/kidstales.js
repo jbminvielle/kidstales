@@ -3,19 +3,13 @@ $(document).ready(function() {
 	alert('bitch');
 
 	launchGoogleMaps();
-});
 
-
-
-//Ajout dynamique de LI pour les marmots.
-
-$('.addLine').click(function(){
-	
-	alert('bitch');
-	$("#dynamicAdd").append('<p><input type="text" name="kids_surname" placeholder="Prénom" /><select name="kids_sex"><option value="null" label="sexe..." selected disabled /><option value="1" label="garçon" /><option value="0" label="fille" /></select><input type="text" name="kids_parents_name" placeholder="Mail de ses parents" /><button>Ajouter</button></p><p><input type="submit" value="Inscrire ce groupe" /></p>');
-	return false;
+	//Ajout dynamique de LI pour les marmots.
 
 });
+
+
+
 
 
 
@@ -33,25 +27,27 @@ function parseHTML() {
 		changeUrl(src);
 	});
 
-	alert('bitch');
-	$('.addLine').click(function(){
-	
-		alert('bitch');
-		$("#dynamicAdd").append('<p><input type="text" name="kids_surname" placeholder="Prénom" /><select name="kids_sex"><option value="null" label="sexe..." selected disabled /><option value="1" label="garçon" /><option value="0" label="fille" /></select><input type="text" name="kids_parents_name" placeholder="Mail de ses parents" /><button>Ajouter</button></p><p><input type="submit" value="Inscrire ce groupe" /></p>');
+	$(".add_line").click(function(e){
+		e.preventDefault();
+		// ecrire "
+		$('.kid_line:first-child').clone().appendTo('#dynamicAdd>div').find('input[type=text]').val('');
+		return false;
+	});
+
+	$(".delete_line").live('click', function(e){
+		e.preventDefault();
+		// ecrire "
+		$(this).parents('p').remove();
 		return false;
 
 	});
-	// todo : support des boutons précédent/suivant
 
-	// if ("onhashchange" in window) { // event supported?
-	// 	window.onhashchange = function () {
-	// 		alert(window.location);
-	// 		changeUrl(window.location);
-	// 	}
-	// }
+	// todo : support des boutons précédent/suivant
 }
 
 function viewChanged(obj) {
+	if(obj.redirect) document.location.href = obj.redirect;
+
 	if(obj.small_header) $('header').addClass('small');
 	else $('header').removeClass('small');
 
@@ -63,6 +59,7 @@ function viewChanged(obj) {
 }
 
 function changeUrl(src) {
+
 	$.ajax({
 		type: "GET",
 		url: src,
@@ -169,6 +166,29 @@ function launchGoogleMaps() {
 			mapOptions);
 }
 
+function enterFullScreen(divId, buttonId) {
+	var docElm = document.getElementById(divId);
+	if (docElm.requestFullscreen) {
+	    docElm.requestFullscreen();
+	}
+	else if (docElm.mozRequestFullScreen) {
+	    docElm.mozRequestFullScreen();
+	}
+	else if (docElm.webkitRequestFullScreen) {
+	    docElm.webkitRequestFullScreen();
+	}
 
+	$('#'+buttonId).hide();
+}
 
-
+function exitFullScreen() {
+	if (document.exitFullscreen) {
+		document.exitFullscreen();
+	}
+	else if (document.mozCancelFullScreen) {
+		document.mozCancelFullScreen();
+	}
+	else if (document.webkitCancelFullScreen) {
+		document.webkitCancelFullScreen();
+	}
+}

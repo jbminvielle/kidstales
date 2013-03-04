@@ -18,6 +18,13 @@ class Histoire extends Prefab{
         
 	}
 
+	function getHeureHistoire($id_hs){
+
+	return F3::get('dB')->exec("SELECT histoire.date from histoire WHERE id_histoire = ".$id_hs);
+
+
+	}
+
 	function addHistoires($contenu, $idEnfant, $idLieu, $medias, $date='today'){
 		//todo
 

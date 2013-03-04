@@ -4,7 +4,6 @@
 		<?php 
 
 		//version quand on est pas identifié
-
 		if(!$connected) { ?>
 			<h1>Les endroits qu'on préfère</h1>
 
@@ -52,16 +51,24 @@
 				case 'dashboard':
 					?>
 
+					<h1>Liens rapides</h1>
+
 					<p>
-						<a>Laisser la main aux enfants</a>
-						<a>Lancer une nouvelle session</a>
+						<a href="#" onclick="openPopup('services/preKidsSpace')">Laisser la main aux enfants</a><br />
+						<a href="registerKids">Lancer une nouvelle session</a>
 					</p>
 
 					<?php
 					break;
 				
 				default:
-					# code...
+					?>
+					<p>
+						<a href="registerKids">Nouvelle session</a><br />
+
+					</p>
+
+					<?php
 					break;
 			}
 		} ?>
