@@ -54,7 +54,7 @@
 					<h1>Liens rapides</h1>
 
 					<p>
-						<a href="kidsSpace">Laisser la main aux enfants</a><br />
+						<a href="#" onclick="openPopup('services/preKidsSpace')">Laisser la main aux enfants</a><br />
 						<a href="registerKids">Lancer une nouvelle session</a>
 					</p>
 
@@ -65,7 +65,7 @@
 					?>
 					<p>
 						<a href="registerKids">Nouvelle session</a><br />
-						
+
 					</p>
 
 					<?php
