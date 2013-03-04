@@ -59,6 +59,10 @@ strong {
 	color: #f26516;
 }
 
+.center {
+	text-align: center;
+}
+
 header {
 	margin: 0; padding: 0;
 	margin-top: 16px;
@@ -223,6 +227,10 @@ section#sidebar {
 	width: 279px;
 }
 
+section#sidebar>div p {
+	padding: 10px
+}
+
 section#sidebar>div {
 	padding-top: 20px;
 	text-align: center;
@@ -363,6 +371,10 @@ section#explanations strong {
 	width: 100%;
 	display: block;
 	margin-top: 40px;
+}
+
+#dynamicAdd .kid_line:first-child .delete_line {
+	display: none;
 }
 
 body>footer {
