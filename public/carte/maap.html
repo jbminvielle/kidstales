@@ -11,30 +11,159 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHDWDnlSU4KwaWiNwqakFnfYDyb3DbFZU&sensor=false">
     </script>
     <script type="text/javascript">
+        var bestPlaces = [
+          {
+            "name": "blabla",
+            "lat": 46.875213396722685,
+            "lng": 2.17529296875
+          },
+          {
+            "name": "blibli",
+            "lat": 49.52,
+            "lng": 2.29
+          },
+          {
+            "name": "bloblo",
+            "lat": 47.301584511330766,
+            "lng": 0.5218505859375
+          }
+        ];
+
+        var markersArray = [];
+
       function initialize() {
         var mapOptions = {
           center: new google.maps.LatLng(48.52, 2.19),
           zoom: 6,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          styles: [
+      {
+        "featureType": "administrative",
+        "stylers": [
+          { "visibility": "on" }
+        ]
+      },{
+        "featureType": "water",
+        "stylers": [
+          { "color": "#3ba58c" }
+        ]
+      },{
+        "featureType": "road",
+        "stylers": [
+          { "visibility": "off" }
+        ]
+      },{
+        "featureType": "landscape.natural",
+        "stylers": [
+          { "color": "#ffefd3" }
+        ]
+      },{
+        "featureType": "transit",
+        "stylers": [
+          { "visibility": "off" }
+        ]
+      },{
+        "featureType": "landscape.man_made",
+        "stylers": [
+          { "visibility": "off" }
+        ]
+      },{
+        "featureType": "poi",
+        "stylers": [
+          { "visibility": "off" }
+        ]
+      },{
+        "featureType": "poi.park",
+        "stylers": [
+          { "visibility": "on" },
+          { "color": "#30b559" }
+        ]
+      },{
+        "featureType": "administrative.country",
+        "stylers": [
+          { "visibility": "on" }
+        ]
+      },{
+        "featureType": "administrative.locality",
+        "elementType": "labels.icon",
+        "stylers": [
+          { "visibility": "on" },
+          { "color": "#e96d42" }
+        ]
+      }
+    ]
         };
 
-         map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-google.maps.event.addListener(map, 'click', function(event) {
+
+  map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
   });
+  setPlacesInMap(bestPlaces);
 
 }
 
 function placeMarker(location) {
+
+  clearOverlays();
+
   var marker = new google.maps.Marker({
       position: location,
       map: map
   });
- google.maps.event.addListener(marker, 'click', function() {
-    map.setZoom(8);
-    map.setCenter(marker.getPosition());
+
+  // Add circle overlay and bind to marker
+  var circle = new google.maps.Circle({
+    map: map,
+    radius: 90000, // 90 km
+    fillColor: '#AA0000'
   });
+
+  circle.bindTo('center', marker, 'position');
+
+  var bounds = circle.getBounds();
+  checkInCircle(bounds);
+
+  markersArray.push(marker);
+  markersArray.push(circle);
+
+  map.setZoom(8);
   map.setCenter(location);
+
+}
+
+function clearOverlays() {
+  for (var i = 0; i < markersArray.length; i++ ) {
+    markersArray[i].setMap(null);
+  }
+}
+
+function setPlacesInMap(places) {
+  // for (var i = 0; i < places.length; i++ ) {
+
+  //   var location = new google.maps.LatLng(places[i].lat, places[i].lng);
+
+  //   var marker = new google.maps.Marker({
+  //       position: location,
+  //       map: map
+  //   });
+  // }
+}
+
+function checkInCircle(bound) {
+  for (var i = 0; i < bestPlaces.length; i++ ) {
+
+    var location = new google.maps.LatLng(bestPlaces[i].lat, bestPlaces[i].lng);
+    if(bound.contains(location)) {
+
+      var marker = new google.maps.Marker({
+          position: location,
+          map: map
+      });
+      markersArray.push(marker);
+    }
+  }
+
 }
 
       /*  var map = new google.maps.Map(document.getElementById("map_canvas"),
@@ -75,28 +204,28 @@ google.maps.event.addListener(map, 'click', function(event) {
 
 /*google.maps.event.addDomListener(window, 'load', initialize);*/
 
-function circle(){ 
-var circleOptions = new google.maps.Circle({
-map: map,
-clickable: false,
-radius: radius,//la taille du cercle en je sais plus quoi
-fillColor: '#08c0be',//design
-fillOpacity: .15,//design
-strokeColor: '#fff',//design
-strokeOpacity: 1,//design
-strokeWeight: 2// design
-});
+// function circle(){ 
+//     var circleOptions = new google.maps.Circle({
+//     map: map,
+//     clickable: false,
+//     radius: radius,//la taille du cercle en je sais plus quoi
+//     fillColor: '#08c0be',//design
+//     fillOpacity: .15,//design
+//     strokeColor: '#fff',//design
+//     strokeOpacity: 1,//design
+//     strokeWeight: 2// design
+//   });
 
 
-google.maps.event.circle.bindTo('center', marker, 'position');//tu applique le cercle au marker qui est le centre du cercle
-  boundsCircle = circle.getBounds();//tu recupere les limite du cercle
-  boundsCircle.contains(marker.latlng);// demande si le marker est contenue dans le cercle
-if(result){
-marker.setVisible(true);  
-}else{
-marker.setVisible(false);
-}
-};
+//   google.maps.event.circle.bindTo('center', marker, 'position');//tu appliques le cercle au marker qui est le centre du cercle
+//     boundsCircle = circle.getBounds();//tu recupere les limite du cercle
+//     boundsCircle.contains(marker.latlng);// demande si le marker est contenue dans le cercle
+//   if(result){
+//     marker.setVisible(true);  
+//   }else{
+//     marker.setVisible(false);
+//   }
+// };
 
     </script>
   </head>
