@@ -12,16 +12,16 @@
 						<small>Vous pourrez modifier le groupe par la suite</small>
 					</div>
 
-					<form id="dynamicAdd" class="inline">
+					<form id="dynamicAdd" class="inline" method="post">
 						<div>
 							<p class="kid_line">
-								<input type="text" name="kids_surname" placeholder="Prénom" />
-								<select name="kids_sex">
+								<input type="text" name="kids_surname[]" placeholder="Prénom" />
+								<select name="kids_sex[]">
 									<option value="null" label="sexe..." selected disabled />
 									<option value="1" label="garçon" />
 									<option value="0" label="fille" />
 								</select>
-								<input type="text" name="kids_parents_name" placeholder="Mail de ses parents" />
+								<input type="text" name="kids_parents_mail[]" placeholder="Mail de ses parents" />
 								<input type="button" class="delete_line" value="Supprimer" />
 							</p>
 						</div>
