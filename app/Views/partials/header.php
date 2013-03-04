@@ -35,6 +35,7 @@
 	<body>	
 		<div id="app">
 
+
 			<header<?php if($smallHeader) echo ' class="small" '; ?>>
 				<!-- menu du haut -->
 				<nav>
