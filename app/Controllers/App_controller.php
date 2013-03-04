@@ -113,20 +113,21 @@ class App_controller{
 	     
 		/* Données de la table enfants/intervenant */
 	     $Child = new Intervenant();
-	     $id_inter = $Child->getInterSession('2013-07-20', '2013-07-30');
+	     $id_inter = $Child->getInterSession('2013-07-20', '2013-07-30');//id_inter de la session
 	     
 
 	     /* recup id enfant*/
-	     $id_e = $Child->getIdEnfants(3, '2013-07-20');	
+	     $id_e = $Child->getIdEnfants(2, '2013-07-20');	//id de l'enfant en fonct° de id_inter et date_debut de la session
 	     F3::set('result',Views::instance()->toJSON($id_e,array('id_enfant'=>'id_enfant')));
 
-	     $enfants = $Child->getNomEnfant(0);
+
+	     $enfants = $Child->getNomEnfant(0);//Nom de l'enfant en fonction de l'histoire
 	     F3::set('enfants',$enfants);
 	     
 
 		/* Données de la table lieu */
 	     $Statement = new Lieu();
-	     $lieu = $Statement->getNomLieu(0);
+	     $lieu = $Statement->getNomLieu(0);//Nom du lieu en fonction de l'histoire
 	     F3::set('lieu',$lieu);	
 	  
 
