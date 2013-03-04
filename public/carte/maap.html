@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHDWDnlSU4KwaWiNwqakFnfYDyb3DbFZU&sensor=false">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(48.52, 2.19),
+          zoom: 6,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+         map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+google.maps.event.addListener(map, 'click', function(event) {
+    placeMarker(event.latLng);
+  });
+
+}
+
+function placeMarker(location) {
+  var marker = new google.maps.Marker({
+      position: location,
+      map: map
+  });
+ google.maps.event.addListener(marker, 'click', function() {
+    map.setZoom(8);
+    map.setCenter(marker.getPosition());
+  });
+  map.setCenter(location);
+}
+
+      /*  var map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+
+        var marker = new google.maps.Marker({
+    position:(event.latLng),
+    map: map,
+    title: 'Click to zoom'
+  });
+
+      google.maps.event.addListener(map, 'click', function(event) {
+    placeMarker(event.latLng);
+  });
+
+        function placeMarker(click) {
+  var marker = new google.maps.Marker({
+      position: click,
+      map: map,
+  })
+};
+       google.maps.event.addListener(map,'click',  function() {
+    // 3 seconds after the center of the map has changed, pan back to the
+    // marker.
+    window.setTimeout(function() {
+      map.panTo(marker.getPosition());
+    }, 3000);
+  });
+         google.maps.event.addListener(marker, 'click', function() {
+    map.setZoom(8);
+    map.setCenter(marker.getPosition());
+  });
+
+google.maps.event.addListener(map, 'click', function(event) {
+   console.log(event.latLng.ib);
+});
+}
+
+/*google.maps.event.addDomListener(window, 'load', initialize);*/
+
+function circle(){ 
+var circleOptions = new google.maps.Circle({
+map: map,
+clickable: false,
+radius: radius,//la taille du cercle en je sais plus quoi
+fillColor: '#08c0be',//design
+fillOpacity: .15,//design
+strokeColor: '#fff',//design
+strokeOpacity: 1,//design
+strokeWeight: 2// design
+});
+
+
+google.maps.event.circle.bindTo('center', marker, 'position');//tu applique le cercle au marker qui est le centre du cercle
+  boundsCircle = circle.getBounds();//tu recupere les limite du cercle
+  boundsCircle.contains(marker.latlng);// demande si le marker est contenue dans le cercle
+if(result){
+marker.setVisible(true);  
+}else{
+marker.setVisible(false);
+}
+};
+
+    </script>
+  </head>
+  <body onload="initialize()">
+    <div id="map_canvas" style="width:100%; height:100%"></div>
+  </body>
+</html
