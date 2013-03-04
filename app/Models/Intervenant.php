@@ -14,6 +14,8 @@ class Intervenant extends Prefab{
 
   }
 
+  
+
   function getInterSession($intervenant){
     //A faire 
     //Je suppose qu'il y a un truc du style les récupérer dans la bdd selon l'account ouvert, sinon j'aurai fait ça
@@ -21,6 +23,17 @@ class Intervenant extends Prefab{
       $session=new DB\SQL\Mapper(F3::get('dB'),'session');
       return $session->load(array('id_intervenant=?',$id_inter))->name; //Avec $id_inter, l'id du mec actuellement connecté.
     */
+
+      return F3::get('dB')->exec(" SELECT DISTINCT session.id_intervenant FROM session WHERE 
+                                    session.date_debut = ".$date_debut." AND session.date_fin = ".$date_fin);
+  }
+  
+
+  function getIdEnfants($id_inter, $date_debut){
+
+    return F3::get('dB')->exec(" SELECT session.id_enfant FROM session WHERE
+                                 session.id_intervenant = ".$id_inter." AND   session.date_debut = ".$date_debut);
+
   }
 
   /* 

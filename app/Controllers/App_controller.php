@@ -85,8 +85,7 @@ class App_controller{
 
 		$id=F3::get('PARAMS.id');
 	    #récupération de la destination courante
-
-	    
+	    /* 
 	    $Hist=new Histoire();
 	    $cont = $Hist->getHistoires();	    
 	    $result=array_map(function($item){return array('id'=>$item->id_histoire,
@@ -104,7 +103,31 @@ class App_controller{
 	    											   'mail'=>$item->mail,
 	     											   'mdp'=>$item->mdp,
 	     											   'sexe'=>$item->sexe);},$enfants);	     
-	     F3::set('result2',json_encode($result2));
+	     F3::set('result2',json_encode($result2));*/
+
+	     /* Données de la table histoire */    
+	    $Hist=new Histoire();
+	    $cont = $Hist->getHeureHistoire(0);
+	    F3::set('cont',$cont);
+	        	     
+	     
+		/* Données de la table enfants/intervenant */
+	     $Child = new Intervenant();
+	     $id_inter = $Child->getIdIntervenant('2013-07-20', '2013-07-30');
+	     echo json_encode($id_inter);
+
+	     /* recup id enfant*/
+	     $id_e = $Child->getIdEnfants(3, '2013-07-20');	
+	     F3::set('result',Views::instance()->toJSON($id_e,array('id_enfant'=>'id_enfant')));
+
+	     $enfants = $Child->getNomEnfant(0);
+	     F3::set('enfants',$enfants);
+	     
+
+		/* Données de la table lieu */
+	     $Statement = new Lieu();
+	     $lieu = $Statement->getNomLieu(0);
+	     F3::set('lieu',$lieu);	
 	  
 
 	}
