@@ -58,10 +58,15 @@ class App_controller{
 	    #récupération de la destination courante	        	     
 	     
 		/* Données de la table enfants/intervenant */
-	     $Child = new Intervenant();   	
+
+	     $Child = new Intervenant();
+
 	     $datesession = $Child->getDatesByIdIntervenant(F3::get('user')->id_intervenant);
 	     F3::set('datesession',Views::instance()->toJSON($datesession,array('date_debut'=>'date_debut',
-	     																	'date_fin'=>'date_fin')));   
+	     																	'date_fin'=>'date_fin')));
+	     if(isset($datesession[0]['date_debut']))
+	     {  	     
+	        
 	     /* Recup id enfant*/
 	     $id_e = $Child->getIdEnfants(F3::get('user')->id_intervenant, $datesession[0]['date_debut']);	//id de l'enfant en fonct° de id_inter et date_debut de la session
 	     F3::set('id_e',Views::instance()->toJSON($id_e,array('id_enfant'=>'id_enfant')));
@@ -83,6 +88,10 @@ class App_controller{
 	     $Statement = new Lieu();
 	     $lieu = $Statement->getNomLieu($cont[0]['id_histoire']);//Nom du lieu en fonction de l'histoire
 	     F3::set('lieu',$lieu);	
+
+	     }
+	     else
+	     {$date = "Aucune session en cours";F3::set('date',$date);}
 	}
 
 	function kidsSpace() {
