@@ -55,57 +55,34 @@ class App_controller{
 		F3::set('viewName', 'dashboard');
 
 		$id=F3::get('PARAMS.id');
-	    #récupération de la destination courante
-	    /* 
-	    $Hist=new Histoire();
-	    $cont = $Hist->getHistoires();	    
-	    $result=array_map(function($item){return array('id'=>$item->id_histoire,
-	    											   'cont'=>$item->cont,
-	    											   'datetime'=>$item->date,
-	     											   'evaluation'=>$item->evaluation,
-	     											   'id_e'=>$item->id_enfant,
-	     											   'id_l'=>$item->id_lieu);},$cont);	     
-	     F3::set('result',json_encode($result));
-
-	     $Child = new Intervenant();
-	     $enfants = $Child->getChilds();
-	     $result2=array_map(function($item){return array('id'=>$item->id_enfant,
-	    											   'prenom'=>$item->prenom,
-	    											   'mail'=>$item->mail,
-	     											   'mdp'=>$item->mdp,
-	     											   'sexe'=>$item->sexe);},$enfants);	     
-	     F3::set('result2',json_encode($result2));*/    
-	        	     
+	    #récupération de la destination courante	        	     
 	     
 		/* Données de la table enfants/intervenant */
-	      $Child = new Intervenant();   
-
-	   
+	     $Child = new Intervenant();   	
+	     $datesession = $Child->getDatesByIdIntervenant(F3::get('user')->id_intervenant);
+	     F3::set('datesession',Views::instance()->toJSON($datesession,array('date_debut'=>'date_debut',
+	     																	'date_fin'=>'date_fin')));   
 	     /* Recup id enfant*/
-	     $id_e = $Child->getIdEnfants(F3::get('user')->id_intervenant, "2013-08-01");	//id de l'enfant en fonct° de id_inter et date_debut de la session
+	     $id_e = $Child->getIdEnfants(F3::get('user')->id_intervenant, $datesession[0]['date_debut']);	//id de l'enfant en fonct° de id_inter et date_debut de la session
 	     F3::set('id_e',Views::instance()->toJSON($id_e,array('id_enfant'=>'id_enfant')));
-	     
 
-	     $enfants = $Child->getNomEnfant($id_e[2]['id_enfant']);//Nom de l'enfant en fonction de sont id
+	     /* recup nom enfant*/
+	     $enfants = $Child->getNomEnfant($id_e[0]['id_enfant']);//Nom de l'enfant en fonction de sont id
 	     $std = $enfants[0]['prenom'];
 	     F3::set('std',$std);
 
 	    /* Données de la table histoire */    
 	    $Hist=new Histoire();
-	    $cont = $Hist->getIdHistoire($id_e[2]['id_enfant'], "2013-08-01", "2013-08-12");
+	    $cont = $Hist->getIdHistoire($id_e[0]['id_enfant'], $datesession[0]['date_debut'], $datesession[0]['date_fin']);
 
 	    $date1 = $Hist->getDateHistoire($cont[0]['id_histoire']);
 	    $date = $date1[0]['date'];
-	    F3::set('date',$date);
-
-	     
+	    F3::set('date',$date);	     
 
 		/* Données de la table lieu */
 	     $Statement = new Lieu();
 	     $lieu = $Statement->getNomLieu($cont[0]['id_histoire']);//Nom du lieu en fonction de l'histoire
 	     F3::set('lieu',$lieu);	
-	  
-
 	}
 
 	function kidsSpace() {

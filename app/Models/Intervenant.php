@@ -14,6 +14,10 @@ class Intervenant extends Prefab{
 
   }
 
+  function getDatesByIdIntervenant($id_inter){
+    return F3::get('dB')->exec("SELECT DISTINCT date_debut, date_fin FROM session WHERE id_intervenant = ".$id_inter);
+  }
+
 
 
   function getInterSession($date_debut,$date_fin){
