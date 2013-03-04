@@ -46,7 +46,7 @@ class Intervenant extends Prefab{
   /* 
    * Returns an intervenant object
    */
-  function checkLogin($mail, $password) {
+  function getIntervenantByMailAndPassword($mail, $password) {
     $intervenantsMapper = new DB\SQL\Mapper(F3::get('dB'),'intervenant');
     return $intervenantsMapper->find(array('mail="'.$mail.'" AND mdp="'.$password.'"'));
   }
@@ -75,6 +75,38 @@ class Intervenant extends Prefab{
   }
   function __destruct(){
 
+  }
+
+  function checkLogin() {
+    F3::set('connected', false);
+    F3::set('user', null);
+
+    //1) check if visitor just logged in
+    if(isset($_POST['login_mail']) && isset($_POST['login_password'])) {
+      //verifying if logins are ok :
+      $login = Intervenant::instance()->getIntervenantByMailAndPassword($_POST['login_mail'], $_POST['login_password']);
+      //if ok, save it into the session
+      if(count($login) == 1) {
+        F3::set("SESSION.user", $login[0]->id_intervenant);
+
+        //set F3 vars for the session
+        F3::set('connected', true);
+        F3::set('user', Intervenant::instance()->getIntervenantById(F3::get("SESSION.user")));
+
+        //finally redirect to explore page
+        header('Location: explore');
+      }
+      else F3::set('login_error', 'WRONG_MAIL_OR_PASSWORD');
+    }
+    else if(isset($_POST['login_mail']) || isset($_POST['login_password']))
+      F3::set('login_error', 'SET_MAIL_AND_PASSWORD');
+
+    //2) check if a session exists
+    else if (F3::exists("SESSION.user")) {
+      //set F3 vars for the session
+      F3::set('connected', true);
+      F3::set('user', Intervenant::instance()->getIntervenantById(F3::get("SESSION.user")));
+    }
   }
 }
 

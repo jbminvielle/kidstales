@@ -16,36 +16,7 @@ class App_controller{
 
 	//verifying automatically the login before anything else
 	function beforeRoute() {
-
-		F3::set('connected', false);
-		F3::set('user', null);
-
-		//1) check if visitor just logged in
-		if(isset($_POST['login_mail']) && isset($_POST['login_password'])) {
-			//verifying if logins are ok :
-			$login = Intervenant::instance()->checkLogin($_POST['login_mail'], $_POST['login_password']);
-			//if ok, save it into the session
-			if(count($login) == 1) {
-				F3::set("SESSION.user", $login[0]->id_intervenant);
-
-				//set F3 vars for the session
-				F3::set('connected', true);
-				F3::set('user', Intervenant::instance()->getIntervenantById(F3::get("SESSION.user")));
-
-				//finally redirect to explore page
-				header('Location: explore');
-			}
-			else F3::set('login_error', 'WRONG_MAIL_OR_PASSWORD');
-		}
-		else if(isset($_POST['login_mail']) || isset($_POST['login_password']))
-			F3::set('login_error', 'SET_MAIL_AND_PASSWORD');
-
-		//2) check if a session exists
-		else if (F3::exists("SESSION.user")) {
-			//set F3 vars for the session
-			F3::set('connected', true);
-			F3::set('user', Intervenant::instance()->getIntervenantById(F3::get("SESSION.user")));
-		}
+		Intervenant::instance()->checkLogin();
 	}
 
 	function home(){

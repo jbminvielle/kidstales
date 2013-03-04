@@ -7,6 +7,11 @@ class Services_controller{
 
 	}
 
+	//verifying automatically the login before anything else
+	function beforeRoute() {
+		Intervenant::instance()->checkLogin();
+	}
+
 	// Lieu
 
 /*	function getBestPlaces(){
