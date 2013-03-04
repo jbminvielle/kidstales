@@ -14,9 +14,9 @@ class Intervenant extends Prefab{
 
   }
 
-  
 
-  function getInterSession($intervenant){
+
+  function getInterSession($date_debut,$date_fin){
     //A faire 
     //Je suppose qu'il y a un truc du style les récupérer dans la bdd selon l'account ouvert, sinon j'aurai fait ça
     /*
@@ -33,6 +33,13 @@ class Intervenant extends Prefab{
 
     return F3::get('dB')->exec(" SELECT session.id_enfant FROM session WHERE
                                  session.id_intervenant = ".$id_inter." AND   session.date_debut = ".$date_debut);
+
+  }
+
+  function getNomEnfant($id_hs){
+
+    return F3::get('dB')->exec("SELECT enfant.prenom FROM enfant, histoire WHERE id_histoire = ".$id_hs." 
+                              AND histoire.id_enfant = enfant.id_enfant ");
 
   }
 

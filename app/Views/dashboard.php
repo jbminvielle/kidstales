@@ -16,18 +16,18 @@
 					<!--début de la boucle-->
 						
 						<div class="dashboard_element">
+
 							<span class="datetime">
-								<script type=text/javascript>
-								</script>
+								<?php echo $cont[0]["date"] ?>
 							</span>
 
 							<span class="picture">
 							</span>
-
+"
 							<span class="content">
 								<span class="line1">
-									<span class="author">Julien</span> 
-									(<span class="lieu">Chateau de Vincennes</span>)
+									<span class="author"><?php echo $enfants[0]["prenom"] ?></span> 
+									(<span class="lieu"><?php echo $lieu[0]["nom"] ?></span>)
 								</span>
 
 								<span class="line2">

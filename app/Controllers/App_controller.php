@@ -113,8 +113,8 @@ class App_controller{
 	     
 		/* Données de la table enfants/intervenant */
 	     $Child = new Intervenant();
-	     $id_inter = $Child->getIdIntervenant('2013-07-20', '2013-07-30');
-	     echo json_encode($id_inter);
+	     $id_inter = $Child->getInterSession('2013-07-20', '2013-07-30');
+	     
 
 	     /* recup id enfant*/
 	     $id_e = $Child->getIdEnfants(3, '2013-07-20');	
