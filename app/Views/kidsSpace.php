@@ -8,7 +8,7 @@
  			</button>
  			<form>
  				<h1>Espace à travailler</h1>
- 				<p>Liste des enfants</p>
+ 				<p>Onglets des enfants</p>
  				<p>Éléments d'interaction (insert de textes, d'images...)</p>
  				<button>
  					On a fini ! (clique ici et appelle ton responsable)
