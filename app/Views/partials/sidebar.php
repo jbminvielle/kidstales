@@ -51,9 +51,11 @@
 				case 'dashboard':
 					?>
 
+					<h1>Liens rapides</h1>
+
 					<p>
-						<a>Laisser la main aux enfants</a>
-						<a>Lancer une nouvelle session</a>
+						<a href="kidsSpace">Laisser la main aux enfants</a><br />
+						<a href="registerKids">Lancer une nouvelle session</a>
 					</p>
 
 					<?php
@@ -62,8 +64,8 @@
 				default:
 					?>
 					<p>
-						<a>Nouvelle session</a>
-						<a>Lancer une nouvelle session</a>
+						<a href="registerKids">Nouvelle session</a><br />
+						
 					</p>
 
 					<?php

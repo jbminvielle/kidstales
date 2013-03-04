@@ -85,23 +85,25 @@ header>nav {
 	-webkit-transition: height 0.2s, width 0.2s;
 }
 
-header>nav>ul {
-	position: relative;
-	width: 100%;
-}
-
-header>nav>ul li {
-	display: inline-block;
+header>nav {
 	font-family: 'sketch_blockbold';
 	text-transform: uppercase;
 
 	color: #ffefd3;
-
 	position: relative;
-	z-index: 1
 }
 
-header>nav>ul li>h1 {
+header>nav>h1, header>nav>ul, header>nav>ul li {
+	display: inline-block;
+	vertical-align: top;
+}
+
+ header>nav>ul {
+ 	position: absolute;
+ 	right: 100px;
+ }
+
+header>nav>h1 {
 	font-size: 130px;
 	line-height: 80px;
 	width: 352px;
@@ -113,11 +115,11 @@ header>nav>ul li>h1 {
 
 	-webkit-transition: font-size 0.2s, line-height 0.2s, width 0.2s, top 0.2s, left 0.2s, letter-spacing 0.2s;
 }
-header>nav>ul li>h1 span {
+header>nav>h1 span {
 	font-size: 0.81em;
 }
 
-header>nav>ul>a:not(:first-child)>li {
+header>nav>ul>a>li {
 	vertical-align: top;
 	width: 257px; height: 125px;
 	margin-left: 10px;
@@ -125,33 +127,26 @@ header>nav>ul>a:not(:first-child)>li {
 	border: 7px solid;
 	border-radius: 20px;
 
-	position: absolute;
-	top: 14px;
+	
+	margin-top: 14px;
 
 	box-shadow: 3px 3px 0px rgba(0,0,0,.25);
 
 	-webkit-transition: width 0.2s, height 0.2s, margin-left 0.2s, border 0.2s, border-radius 0.2s, top 0.2s;
 }
 
-header>nav>ul>a:not(:first-child)>li:active {
+header>nav>ul>a>li:active {
 	box-shadow: 1px 1px 0px rgba(0,0,0,.25);
 	-webkit-transform: translate(2px, 2px);
 }
 
 header>nav>ul>a[href=explore]>li {
 	background: url('images/explore_button.png') no-repeat center;
-	font-size: 0;
+	background-size: 100%;
+	font-size: 0!important;
 
 	color: #514c43;
 	-webkit-transition: right 0.2s;
-}
-
-header>nav>ul>a:nth-child(2)>li {
-	right: 337px;
-}
-
-header>nav>ul>a:nth-child(3)>li {
-	right: 50px;
 }
 
 header>nav>ul>a>li.text_based {
@@ -182,7 +177,7 @@ header>nav>ul>a>li.text_based:active {
 	}
 
 
-	header.small>nav>ul li>h1 {
+	header.small>nav>h1 {
 		font-size: 65px;
 		line-height: 40px;
 		width: 176px;
@@ -191,7 +186,7 @@ header>nav>ul>a>li.text_based:active {
 		letter-spacing: -3px;
 	}
 
-	header.small>nav>ul>a:not(:first-child)>li {
+	header.small>nav>ul>a>li {
 		width: 128px; height: 62.5px;
 		margin-left: 5px;
 
@@ -200,16 +195,11 @@ header>nav>ul>a>li.text_based:active {
 
 		top: 7px;
 		font-size: 15px;
+
+		margin-top: 7px;
 	}
 
-	header.small>nav>ul>a:nth-child(2)>li {
-		background-size: 100%;
-		right: 168.5px;
-	}
-
-
-	header.small>nav>ul>a:nth-child(3)>li {
-		right: 25px;
+	header.small>nav>ul>a>li.text_based {
 		padding-top: 17.5px; height: 45px;
 	}
 
@@ -441,6 +431,12 @@ body {
 	margin: auto;
 }
 
+#kidsSpaceContainer:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
 .hidden {
 	display: none;
 }
@@ -457,6 +453,10 @@ body {
 		width: 100%!important;
 	}
 	header { margin-bottom: 0!important;}
+
+	header>nav>ul {
+		right: 30px!important;
+	}
 }
 
 
@@ -466,16 +466,16 @@ body {
 		display: none;
 	}
 
-	header>nav>ul>a:nth-child(3)>li {
-		right: 2%!important;
-	}
-
 	nav {
 		padding: 0 20px !important;
 	}
 
 	section#explanations h1 {
 		font-size: 60px;
+	}
+
+	header>nav>ul {
+		right: 40px!important;
 	}
 }
 
@@ -504,6 +504,10 @@ body {
 	#map_canvas {
 		display: none;
 	}
+
+	header>nav>ul {
+		right: 40px!important;
+	}
 }
 
 @media screen and (max-width: 960px) {
@@ -522,7 +526,7 @@ body {
 		margin :auto!important;
 	}
 
-	header>nav>ul li>h1 {
+	header>nav>h1 {
 		font-size: 65px;
 		line-height: 40px;
 		width: 176px;
@@ -532,24 +536,14 @@ body {
 	}
 
 
-	header>nav>ul>a:not(:first-child)>li {
+	header>nav>ul>a>li {
 		width: 128px; height: 62.5px;
 		margin-left: 5px;
 
 		border: 3.5px solid;
 		border-radius: 10px;
 
-		top: 7px;
-	}
-
-	header>nav>ul>a:nth-child(2)>li {
-		background-size: 100%;
-		right: 168.5px;
-	}
-
-	header>nav>ul>a:nth-child(3)>li {
-		background-size: 100%;
-		right: 25px;
+		margin-top: 7px;
 	}
 
 	header>nav>ul>a>li.text_based {

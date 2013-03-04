@@ -38,12 +38,13 @@
 			<header<?php if($smallHeader) echo ' class="small" '; ?>>
 				<!-- menu du haut -->
 				<nav>
-					<ul>
-						<li><h1><a href="home" title="Page d'accueil">Kids' <span>Tales</span></a></h1></li>
+					<h1><a href="home" title="Page d'accueil">Kids' <span>Tales</span></a></h1>
+						<ul>
 						<?php if(!$connected) { ?>
 							<a href="explore" title="Explorer"><li class="to_responsively_hide">Explorer</li></a>
 							<a href="register" title="S'inscrire à l'outil"><li class="text_based">Inscription<br />Connexion</li></a>
 						<?php } else { ?>
+							<a href="kidsSpace" title="Dashboard"><li class="text_based">Pour les enfants</li></a>
 							<a href="dashboard" title="Dashboard"><li class="text_based">Tableau<br />de bord</li></a>
 							<a href="services/signout" title="Déconnexion"><li class="text_based to_responsively_hide">Decon-<br />nection</li></a>
 

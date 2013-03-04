@@ -43,6 +43,8 @@ function parseHTML() {
 }
 
 function viewChanged(obj) {
+	if(obj.redirect) document.location.href = obj.redirect;
+
 	if(obj.small_header) $('header').addClass('small');
 	else $('header').removeClass('small');
 
@@ -54,6 +56,7 @@ function viewChanged(obj) {
 }
 
 function changeUrl(src) {
+
 	$.ajax({
 		type: "GET",
 		url: src,
@@ -160,6 +163,29 @@ function launchGoogleMaps() {
 			mapOptions);
 }
 
+function enterFullScreen(divId, buttonId) {
+	var docElm = document.getElementById(divId);
+	if (docElm.requestFullscreen) {
+	    docElm.requestFullscreen();
+	}
+	else if (docElm.mozRequestFullScreen) {
+	    docElm.mozRequestFullScreen();
+	}
+	else if (docElm.webkitRequestFullScreen) {
+	    docElm.webkitRequestFullScreen();
+	}
 
+	$('#'+buttonId).hide();
+}
 
-
+function exitFullScreen() {
+	if (document.exitFullscreen) {
+		document.exitFullscreen();
+	}
+	else if (document.mozCancelFullScreen) {
+		document.mozCancelFullScreen();
+	}
+	else if (document.webkitCancelFullScreen) {
+		document.webkitCancelFullScreen();
+	}
+}

@@ -90,6 +90,14 @@ class Services_controller{
         }
     }
 
+    function signout() {
+    	F3::clear('user');
+    	F3::set('connected', false);
+    	F3::clear('SESSION.user');
+
+    	F3::set('object', array('redirect'=> '../explore'));
+    }
+
 	// Dashboard
 	function preKidsSpace() {
 		F3::set('object', array("page_content"=> Views::instance()->render('partials/preKidsSpace.php')));

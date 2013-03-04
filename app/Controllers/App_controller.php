@@ -5,6 +5,13 @@ class App_controller{
 
 	function __construct(){
 
+		//default values :
+		F3::set('viewTitle', "");
+		F3::set('smallHeader', true);
+		F3::set('map', false);
+		F3::set('viewName', '');
+		F3::set('opt', array());		
+
 	}
 
 	//verifying automatically the login before anything else
@@ -26,7 +33,7 @@ class App_controller{
 				F3::set('user', Intervenant::instance()->getIntervenantById(F3::get("SESSION.user")));
 
 				//finally redirect to explore page
-				//header('Location: explore');
+				header('Location: explore');
 			}
 			else F3::set('login_error', 'WRONG_MAIL_OR_PASSWORD');
 		}
@@ -42,6 +49,7 @@ class App_controller{
 	}
 
 	function home(){
+		if(F3::get('connected')) return self::explore(); //redirect to explore if connected
 		F3::set('viewTitle', "Kid's Tales");
 		F3::set('smallHeader', false);
 		F3::set('map', true);
@@ -50,14 +58,12 @@ class App_controller{
 
 	function explore() {
 		F3::set('viewTitle', "Kid's Tales - Explorer");
-		F3::set('smallHeader', true);
 		F3::set('map', true);
 		F3::set('viewName', 'explore');
 	}
 
 	function register() {
 		F3::set('viewTitle', "Kid's Tales - S'inscrire");
-		F3::set('smallHeader', true);
 		F3::set('map', true);
 		F3::set('viewName', 'register');
 	}
@@ -67,9 +73,6 @@ class App_controller{
 		if(!self::checkConnexion()) return false;
 
 		F3::set('viewTitle', "Kid's Tales - Inscrire un groupe");
-		F3::set('smallHeader', true);
-		F3::set('map', false);
-
 		F3::set('viewName', 'registerKids');
 	}
 
@@ -78,8 +81,6 @@ class App_controller{
 		if(!self::checkConnexion()) return false;
 
 		F3::set('viewTitle', "Kid's Tales - Tableau de bord");
-		F3::set('smallHeader', true);
-		F3::set('map', false);
 		F3::set('viewName', 'dashboard');
 
 		$id=F3::get('PARAMS.id');
@@ -113,13 +114,11 @@ class App_controller{
 		if(!self::checkConnexion()) return false;
 
 		F3::set('viewTitle', "Kid's Tales - Espace enfant");
-		F3::set('smallHeader', true);
-		F3::set('map', false);
 		F3::set('viewName', 'kidsSpace');
 	}
 
 	function checkConnexion() {
-		if(!F3::set('connected')) {
+		if(!F3::get('connected')) {
 			header('HTTP/1.0 403 Forbidden');
 			return false;
 		}
@@ -140,6 +139,7 @@ class App_controller{
 				'page_title'=> F3::get('viewTitle'),
 				'small_header'=> F3::get('smallHeader'),
 				'map'=> F3::get('map'),
+				'opt'=> F3::get('opt'),
 				'page_content'=> $html));
 		}
 		else echo $html;
