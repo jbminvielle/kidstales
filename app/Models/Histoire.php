@@ -18,7 +18,14 @@ class Histoire extends Prefab{
         
 	}
 
-	function getHeureHistoire($id_hs){
+	function getIdHistoire($id_en, $date_debut, $date_fin){
+
+	return F3::get('dB')->exec("SELECT histoire.id_histoire from histoire WHERE id_enfant = ".$id_en." AND date BETWEEN '".$date_debut."' AND '".$date_fin."'");
+
+
+	}
+
+	function getDateHistoire($id_hs){
 
 	return F3::get('dB')->exec("SELECT histoire.date from histoire WHERE id_histoire = ".$id_hs);
 

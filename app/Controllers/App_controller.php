@@ -74,31 +74,35 @@ class App_controller{
 	    											   'mail'=>$item->mail,
 	     											   'mdp'=>$item->mdp,
 	     											   'sexe'=>$item->sexe);},$enfants);	     
-	     F3::set('result2',json_encode($result2));*/
-
-	     /* Données de la table histoire */    
-	    $Hist=new Histoire();
-	    $cont = $Hist->getHeureHistoire(0);
-	    F3::set('cont',$cont);
+	     F3::set('result2',json_encode($result2));*/    
 	        	     
 	     
 		/* Données de la table enfants/intervenant */
-	     $Child = new Intervenant();
-	     $id_inter = $Child->getInterSession('2013-07-20', '2013-07-30');//id_inter de la session     
+	      $Child = new Intervenant();   
 
 	   
 	     /* Recup id enfant*/
-	     $id_e = $Child->getIdEnfants(F3::get('user')->id_intervenant, '2013-07-20');	//id de l'enfant en fonct° de id_inter et date_debut de la session
-	     //F3::set('result',Views::instance()->toJSON($id_e,array('id_enfant'=>'id_enfant')));
+	     $id_e = $Child->getIdEnfants(F3::get('user')->id_intervenant, "2013-08-01");	//id de l'enfant en fonct° de id_inter et date_debut de la session
+	     F3::set('id_e',Views::instance()->toJSON($id_e,array('id_enfant'=>'id_enfant')));
+	     
 
+	     $enfants = $Child->getNomEnfant($id_e[2]['id_enfant']);//Nom de l'enfant en fonction de sont id
+	     $std = $enfants[0]['prenom'];
+	     F3::set('std',$std);
 
-	     $enfants = $Child->getNomEnfant(0);//Nom de l'enfant en fonction de l'histoire
-	     F3::set('enfants',$enfants);
+	    /* Données de la table histoire */    
+	    $Hist=new Histoire();
+	    $cont = $Hist->getIdHistoire($id_e[2]['id_enfant'], "2013-08-01", "2013-08-12");
+
+	    $date1 = $Hist->getDateHistoire($cont[0]['id_histoire']);
+	    $date = $date1[0]['date'];
+	    F3::set('date',$date);
+
 	     
 
 		/* Données de la table lieu */
 	     $Statement = new Lieu();
-	     $lieu = $Statement->getNomLieu(0);//Nom du lieu en fonction de l'histoire
+	     $lieu = $Statement->getNomLieu($cont[0]['id_histoire']);//Nom du lieu en fonction de l'histoire
 	     F3::set('lieu',$lieu);	
 	  
 

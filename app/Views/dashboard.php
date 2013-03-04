@@ -18,15 +18,15 @@
 						<div class="dashboard_element">
 
 							<span class="datetime">
-								<?php echo $cont[0]["date"] ?>
+								<?php echo $date ?>
 							</span>
 
 							<span class="picture">
 							</span>
-"
+
 							<span class="content">
 								<span class="line1">
-									<span class="author"><?php echo $enfants[0]["prenom"] ?></span> 
+									<span class="author"><?php echo $std ?></span> 
 									(<span class="lieu"><?php echo $lieu[0]["nom"] ?></span>)
 								</span>
 

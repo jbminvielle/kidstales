@@ -32,14 +32,13 @@ class Intervenant extends Prefab{
   function getIdEnfants($id_inter, $date_debut){
 
     return F3::get('dB')->exec(" SELECT session.id_enfant FROM session WHERE
-                                 session.id_intervenant = ".$id_inter." AND   session.date_debut = ".$date_debut);
+                                 session.id_intervenant = ".$id_inter." AND   session.date_debut = '".$date_debut."'");
 
   }
 
-  function getNomEnfant($id_hs){
+  function getNomEnfant($id_enfant){
 
-    return F3::get('dB')->exec("SELECT enfant.prenom FROM enfant, histoire WHERE id_histoire = ".$id_hs." 
-                              AND histoire.id_enfant = enfant.id_enfant ");
+    return F3::get('dB')->exec("SELECT DISTINCT enfant.prenom FROM enfant WHERE id_enfant = ".$id_enfant);
 
   }
 
