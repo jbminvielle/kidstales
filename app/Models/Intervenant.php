@@ -107,8 +107,13 @@ class Intervenant extends Prefab{
     //2) check if a session exists
     else if (F3::exists("SESSION.user")) {
       //set F3 vars for the session
-      F3::set('connected', true);
-      F3::set('user', Intervenant::instance()->getIntervenantById(F3::get("SESSION.user"))[0]);
+      
+      $intervenant = Intervenant::instance()->getIntervenantById(F3::get("SESSION.user"));
+      if(count($intervenant) == 1) {
+        F3::set('connected', true);
+        F3::set('user',  $intervenant[0]);
+      }
+      else F3::clear("SESSION.user");
     }
   }
 }
