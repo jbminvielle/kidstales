@@ -14,6 +14,10 @@ class Intervenant extends Prefab{
 
   }
 
+  function getDatesByIdIntervenant($id_inter){
+    return F3::get('dB')->exec("SELECT DISTINCT date_debut, date_fin FROM session WHERE id_intervenant = ".$id_inter);
+  }
+
 
 
   function getInterSession($date_debut,$date_fin){
@@ -32,14 +36,13 @@ class Intervenant extends Prefab{
   function getIdEnfants($id_inter, $date_debut){
 
     return F3::get('dB')->exec(" SELECT session.id_enfant FROM session WHERE
-                                 session.id_intervenant = ".$id_inter." AND   session.date_debut = ".$date_debut);
+                                 session.id_intervenant = ".$id_inter." AND   session.date_debut = '".$date_debut."'");
 
   }
 
-  function getNomEnfant($id_hs){
+  function getNomEnfant($id_enfant){
 
-    return F3::get('dB')->exec("SELECT enfant.prenom FROM enfant, histoire WHERE id_histoire = ".$id_hs." 
-                              AND histoire.id_enfant = enfant.id_enfant ");
+    return F3::get('dB')->exec("SELECT DISTINCT enfant.prenom FROM enfant WHERE id_enfant = ".$id_enfant);
 
   }
 
@@ -104,8 +107,15 @@ class Intervenant extends Prefab{
     //2) check if a session exists
     else if (F3::exists("SESSION.user")) {
       //set F3 vars for the session
-      F3::set('connected', true);
-      //F3::set('user', Intervenant::instance()->getIntervenantById(F3::get("SESSION.user"))[0]);
+
+      
+      $intervenant = Intervenant::instance()->getIntervenantById(F3::get("SESSION.user"));
+      if(count($intervenant) == 1) {
+        F3::set('connected', true);
+        F3::set('user',  $intervenant[0]);
+      }
+      else F3::clear("SESSION.user");
+
     }
   }
 }
