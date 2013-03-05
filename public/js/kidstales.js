@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	parseHTML();
-	alert('bitch');
 
 	launchGoogleMaps();
 
