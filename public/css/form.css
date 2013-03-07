@@ -40,10 +40,27 @@ button, input[type=button], input[type=submit] {
 	color: #fff4d8;
 	border: none;
 	box-shadow: inset 0px 0px 4px rgba(0,0,0,0.4);
+	border-radius: 5px;
 
 	font-size: 20px;
+
+	cursor: pointer;
+
+	-webkit-transition: background 0.2s;
 }
 
 form#dynamicAdd input[type=button] {
 	font-size: 15px;
+}
+
+/* button interactivity */
+
+button:hover, input[type=button]:hover, input[type=submit]:hover {
+	background: #62B7A3;
+	-webkit-transition: none;
+}
+
+button:active, input[type=button]:active, input[type=submit]:active {
+	background: #2F8470;
+	-webkit-transform: translateY(2px);
 }

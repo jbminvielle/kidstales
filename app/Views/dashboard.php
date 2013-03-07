@@ -15,7 +15,7 @@
 					<p>
 					<!--début de la boucle-->
 						
-						<div class="dashboard_element" onclick="openPopup('service/post?id=')">
+						<div class="dashboard_element" onclick="openPopup('service/histoire?id=')">
 
 							<span class="datetime">
 								<?php echo $date ?>

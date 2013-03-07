@@ -7,17 +7,9 @@ $(document).ready(function() {
 
 });
 
-
-
-
-
-
-
-
-
 function parseHTML() {
 	//alert(document.documentElement.scrollHeight);
-	$('body>div#map_canvas').css('height', $(window).height());
+	$('#map_canvas, #map_cache').css('height', $(window).height());
 
 	$('a, button[href]').click(function(e) {
 		e.preventDefault();
