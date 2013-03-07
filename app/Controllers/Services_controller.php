@@ -85,13 +85,13 @@ class Services_controller{
                 //$_POST('inputname');
                 $Inter=new Intervenant();
              
-           	    $session = $Inter->getInterSession($intervenant_connecte); // Je ne sais pas comment le récupérer, l'intervenant tel un mapper dans la bdd
-           	    $ii = 0;
+                $session = $Inter->getInterSession($intervenant_connecte); // Je ne sais pas comment le récupérer, l'intervenant tel un mapper dans la bdd
+                $ii = 0;
                 foreach($kids_surname as $value)
                 {
-                	$objetgosse->prenom = kids_surname[$ii]
-                	$objetgosse->mail = kids_parents_mail[$ii]
-                	$objetgosse->sexe  = kids_sex[$ii]
+                	$objetgosse->prenom = $kids_surname[$ii];
+                	$objetgosse->mail = $kids_parents_mail[$ii];
+                	$objetgosse->sexe  = $kids_sex[$ii];
                 	addChild($objetgosse , $intervenant_connecte);
                 	$ii++;
                 }
