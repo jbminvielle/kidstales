@@ -11,10 +11,10 @@ class Histoire extends Prefab{
 
 	}
 
-	function getHistoires(){
+	function getHistoires($id_en, $date_debut, $date_fin){
 
-		$getHistoires=new DB\SQL\Mapper(F3::get('dB'),'histoire');
-        return $getHistoires->find(NULL,array('order'=>'evaluation'));
+	return F3::get('dB')->exec("SELECT histoire.cont from histoire WHERE id_enfant = ".$id_en." AND date BETWEEN '".$date_debut."' AND '".$date_fin."'");
+
         
 	}
 

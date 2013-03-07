@@ -87,10 +87,15 @@ class App_controller {
                 $date = $date1[0]['date'];
                 F3::set('date', $date);
 
+                $contenu = $Hist->getHistoires($id_e[0]['id_enfant'], $datesession[0]['date_debut'], $datesession[0]['date_fin']);
+                $contenu1 = $contenu[0]['cont'];
+                F3::set('contenu1', $contenu1);
+
                 /* Données de la table lieu */
                 $Statement = new Lieu();
                 $lieu = $Statement->getNomLieu($cont[0]['id_histoire']); //Nom du lieu en fonction de l'histoire
-                F3::set('lieu', $lieu);
+                $lieu1 = $lieu[0]['nom'];
+                F3::set('lieu1', $lieu1);
             }
             else{
                 $std = "Aucune histoire"; F3::set('std', $std);
