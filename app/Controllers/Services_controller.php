@@ -30,7 +30,7 @@ class Services_controller{
 	function getBestPlaces(){
 
 		$Lieu=new Lieu;
-		$cont =  $Lieu -> getMeilleursLieu();
+		$object =  $Lieu -> getMeilleursLieu();
 
 		echo json_encode();
 
