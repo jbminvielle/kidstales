@@ -27,11 +27,11 @@
 							<span class="content">
 								<span class="line1">
 									<span class="author"><?php echo $std ?></span> 
-									<span class="lieu"><?php echo $lieu[0]["nom"] ?></span>
+									(<span class="lieu"><?php echo $lieu1 ?></span>)
 								</span>
 
 								<span class="line2">
-									<span class="note"></span> -
+									<span class="note"><?php echo $contenu1 ?></span>
 									<span class="medias"></span>
 									<span class="verify"></span>
 								</span>

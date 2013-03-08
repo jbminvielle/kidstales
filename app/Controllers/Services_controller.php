@@ -29,10 +29,18 @@ class Services_controller{
 
 	function getBestPlaces(){
 
-		$Lieu=new Lieu;
-		$cont =  $Lieu -> getMeilleursLieu();
+		$Lieu= new Lieu();
+		$object = $Lieu->getMeilleursLieu();
 
-		echo json_encode();
+		F3::set('object', array_map(function($item) {
+			return array('id'=>$item->id_lieu,
+				'lat'=>$item->pos_x,
+				'long'=>$item->pos_y,
+				'nom'=>$item->nom,
+				'note'=>$item->note,
+				'id_l'=>$item->id_lieu);
+				}, $object)
+		);
 
 	}
 
