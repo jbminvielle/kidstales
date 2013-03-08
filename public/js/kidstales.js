@@ -224,7 +224,11 @@ function checkInCircle(bound) {
       });
 
 	  google.maps.event.addListener(marker, 'click', function(event) {
-	    alert(JSON.stringify(this.customInfo));
+
+	  	//event.
+		//alert(JSON.stringify(this.customInfo));
+
+		$('body').append('<div class="map_marker"><div class="map_marker_infos"><img src="'+this.customInfo.image+'" alt="'+this.customInfo.nom+'" /><div><h3>'+this.customInfo.nom+'</h3><p><img src="public/css/images/smile.png" alt="smile" /> <img src="public/css/images/smile.png" alt="smile" /> <img src="public/css/images/smile.png" alt="smile" /> <img src="public/css/images/smile.png" alt="smile" /> <img src="public/css/images/smile.png" alt="smile" /> </p><p>'+this.customInfo.description+'</p></div></div></div>');
 	  });
 
       markersArray.push(marker);

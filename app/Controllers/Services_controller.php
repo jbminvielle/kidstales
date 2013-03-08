@@ -38,7 +38,8 @@ class Services_controller{
 				'lng'=>$item->lng,
 				'nom'=>$item->nom,
 				'note'=>$item->note,
-				'id_l'=>$item->id_lieu);
+				'image'=>'public/images/cantal.jpg',
+				'description'=>'test');
 				}, $object)
 		);
 
