@@ -34,8 +34,8 @@ class Services_controller{
 
 		F3::set('object', array_map(function($item) {
 			return array('id'=>$item->id_lieu,
-				'lat'=>$item->pos_x,
-				'long'=>$item->pos_y,
+				'lat'=>$item->lat,
+				'lng'=>$item->lng,
 				'nom'=>$item->nom,
 				'note'=>$item->note,
 				'id_l'=>$item->id_lieu);
