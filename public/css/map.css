@@ -6,8 +6,10 @@ div.map_marker {
 	background-image: url('images/grey_pattern.png');
 	box-shadow: 5px 5px 0px rgba(0,0,0,.25);
 	padding: 13px;
-}
+	display: block;
 
+	margin: auto;
+}
 
 .map_marker_infos {
 	background-image: url('images/beige_pattern.png');
@@ -16,6 +18,7 @@ div.map_marker {
 }
 
 .map_marker_infos>div {
+	min-width: 279px;
 	position: absolute;
 	top: 0; left: 0;
 	padding-top: 12px;

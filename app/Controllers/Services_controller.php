@@ -38,8 +38,8 @@ class Services_controller{
 				'lng'=>$item->lng,
 				'nom'=>$item->nom,
 				'note'=>$item->note,
-				'image'=>'public/images/cantal.jpg',
-				'description'=>'test');
+				'image'=>$item->photo,
+				'description'=>$item->comment);
 				}, $object)
 		);
 

@@ -192,6 +192,7 @@ function placeMarker(location) {
   });
 
   circle.bindTo('center', marker, 'position');
+  $('.map_marker').remove();
 
   var bounds = circle.getBounds();
   checkInCircle(bounds);
@@ -228,10 +229,15 @@ function checkInCircle(bound) {
 	  	//event.
 		//alert(JSON.stringify(this.customInfo));
 
-		$('body').append('<div class="map_marker"><div class="map_marker_infos"><img src="'+this.customInfo.image+'" alt="'+this.customInfo.nom+'" /><div><h3>'+this.customInfo.nom+'</h3><p><img src="public/css/images/smile.png" alt="smile" /> <img src="public/css/images/smile.png" alt="smile" /> <img src="public/css/images/smile.png" alt="smile" /> <img src="public/css/images/smile.png" alt="smile" /> <img src="public/css/images/smile.png" alt="smile" /> </p><p>'+this.customInfo.description+'</p></div></div></div>');
+		$('.map_marker').remove();
+
+		$('body').append('<div class="map_marker"><div class="map_marker_infos" style="background-image:url('+this.customInfo.image+')"><div><h3>'+this.customInfo.nom+'</h3><p><img src="public/css/images/smile.png" alt="smile" /> <img src="public/css/images/smile.png" alt="smile" /> <img src="public/css/images/smile.png" alt="smile" /> <img src="public/css/images/smile.png" alt="smile" /> <img src="public/css/images/smile.png" alt="smile" /> </p><p>'+this.customInfo.description+'</p></div></div></div>');
+
+	  	map.setCenter(event.latLng);
 	  });
 
       markersArray.push(marker);
+
     }
   }
 }
