@@ -83,19 +83,21 @@ class Services_controller{
 
             case 'POST':
                 //$_POST('inputname');
-                $Inter=new Intervenant();
              
-                $session = $Inter->getInterSession($intervenant_connecte); // Je ne sais pas comment le récupérer, l'intervenant tel un mapper dans la bdd
+                $session =  F3::get('user')->id_intervenant;
                 $ii = 0;
-                foreach($kids_surname as $value)
-                {
-                	$objetgosse->prenom = $kids_surname[$ii];
-                	$objetgosse->mail = $kids_parents_mail[$ii];
-                	$objetgosse->sexe  = $kids_sex[$ii];
-                	addChild($objetgosse , $intervenant_connecte);
-                	$ii++;
+                foreach($kids_surname as $value){
+                	console.log($value);
                 }
-                break;
+                // foreach($kids_surname as $value)
+                // {
+                // 	$objetgosse->prenom = $kids_surname[$ii];
+                // 	$objetgosse->mail = $kids_parents_mail[$ii];
+                // 	$objetgosse->sexe  = $kids_sex[$ii];
+                // 	addChild($objetgosse , $intervenant_connecte);
+                // 	$ii++;
+                // }
+                // break;
         }
     }
 

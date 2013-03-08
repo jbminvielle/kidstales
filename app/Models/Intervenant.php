@@ -62,19 +62,23 @@ class Intervenant extends Prefab{
     return $intervenantsMapper->find(array('id_intervenant=?', $id));
   }
     
+  function getLastId(){
+      return F3::get('dB')->exec("select MAX(id_enfant) from enfant");
+
+  }
+
 
   function addChild($object , $object2){ //Object est l'enfant, object2 est l'inter connecté
     $enfant=new DB\SQL\Mapper(F3::get('dB'),'enfant');
-    $enfant->id_enfant = $object->id_enfant;
     $enfant->prenom = $object->prenom;
     $enfant->mail = $object->mail;
-    $enfant->mdp = $object->mdp;
     $enfant->sexe = $object->sexe;
+    $enfant->id_enfant = $object->id;
     $enfant->save();
     $session=new DB\SQL\Mapper(F3::get('dB'),'session');
-    $session->id_enfant = $object->id_enfant;
-    $session->id_inter =  $object2->id_inter;
-    $session->save();
+    //$session->id_enfant = $object->id_enfant;
+    //$session->id_inter =  $object2;
+    //$session->save();
   }
   function __destruct(){
 

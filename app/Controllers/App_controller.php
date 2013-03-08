@@ -41,12 +41,46 @@ class App_controller {
     }
 
     function registerKids() {
-        //get signup informations
-        if (!self::checkConnexion())
-            return false;
 
-        F3::set('viewTitle', "Kid's Tales - Inscrire un groupe");
-        F3::set('viewName', 'registerKids');
+        switch(F3::get('VERB')){
+            case 'GET':
+                 //get signup informations
+                if (!self::checkConnexion())
+                    return false;
+                //echo Views::instance()->render('registerKids.php');
+                F3::set('viewTitle', "Kid's Tales - Inscrire un groupe");
+                F3::set('viewName', 'registerKids');
+                break;
+
+            case 'POST':
+                $inter = new Intervenant();
+                //$_POST('inputname');
+                // $idpoursession = F3::get('user')->id_intervenant;
+                // $sessionMapper = new DB\SQL\Mapper(F3::get('dB'),'session');
+                // $session = $sessionMapper->load(array('id_intervenant=?',$idpoursession));
+                // $session = $session->name;
+
+                $ii = 0;
+                $objetgosse = new stdClass();
+                foreach($_POST['kids_surname'] as $value)
+                {
+                 $objetgosse->prenom = $_POST['kids_surname'][$ii];
+                 $objetgosse->mail = $_POST['kids_parents_mail'][$ii];
+                 $objetgosse->sexe  = 1;//$_POST['kids_sex'][$ii];
+                 $objetgosse->id = $inter->getLastId();
+                 $inter->addChild($objetgosse , "kikoo"); //$session
+                 $ii++;
+                }
+
+
+                if (!self::checkConnexion())
+                    return false;
+                F3::set('viewTitle', "Kid's Tales - Inscrire un groupe");
+                F3::set('viewName', 'registerKids');
+                break;
+        }
+
+        
     }
 
     function dashboard() {

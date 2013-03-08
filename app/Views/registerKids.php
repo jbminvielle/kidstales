@@ -15,15 +15,16 @@
 					<form id="dynamicAdd" class="inline" method="post">
 						<div>
 							<p class="kid_line">
-								<input type="text" name="kids_surname[]" placeholder="Prénom" />
-								<select name="kids_sex[]">
+								<input type="text" name="kids_surname[]" placeholder="Prénom" method='POST' />
+								<select name="kids_sex[]" method='POST'>
 									<option value="null" label="sexe..." selected disabled />
 									<option value="1" label="garçon" />
 									<option value="0" label="fille" />
-								</select>
-								<input type="text" name="kids_parents_mail[]" placeholder="Mail de ses parents" />
+								</select> 
+								<input type="text" name="kids_parents_mail[]" placeholder="Mail de ses parents" method='POST' />
 								<input type="button" class="delete_line" value="Supprimer" />
 							</p>
+
 						</div>
 
 						<p>
