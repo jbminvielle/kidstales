@@ -73,7 +73,7 @@ class Intervenant extends Prefab{
     $enfant->prenom = $object->prenom;
     $enfant->mail = $object->mail;
     $enfant->sexe = $object->sexe;
-    $enfant->id_enfant = $object->id;
+    // $enfant->id_enfant = $object->id;
     $enfant->save();
     $session=new DB\SQL\Mapper(F3::get('dB'),'session');
     //$session->id_enfant = $object->id_enfant;

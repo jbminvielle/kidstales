@@ -67,7 +67,7 @@ class App_controller {
                  $objetgosse->prenom = $_POST['kids_surname'][$ii];
                  $objetgosse->mail = $_POST['kids_parents_mail'][$ii];
                  $objetgosse->sexe  = 1;//$_POST['kids_sex'][$ii];
-                 $objetgosse->id = $inter->getLastId();
+                 // $objetgosse->id = $inter->getLastId();
                  $inter->addChild($objetgosse , "kikoo"); //$session
                  $ii++;
                 }
