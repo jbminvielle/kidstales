@@ -10,6 +10,7 @@ class App_controller {
         F3::set('viewTitle', "");
         F3::set('smallHeader', true);
         F3::set('map', false);
+        F3::set('cache', true);
         F3::set('viewName', '');
         F3::set('opt', array());
     }
@@ -31,6 +32,7 @@ class App_controller {
     function explore() {
         F3::set('viewTitle', "Kid's Tales - Explorer");
         F3::set('map', true);
+        F3::set('cache', false);
         F3::set('viewName', 'explore');
     }
 
@@ -173,6 +175,7 @@ class App_controller {
                 'page_title' => F3::get('viewTitle'),
                 'small_header' => F3::get('smallHeader'),
                 'map' => F3::get('map'),
+                'cache' => F3::get('cache'),
                 'opt' => F3::get('opt'),
                 'page_content' => $html));
         }

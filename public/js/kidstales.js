@@ -1,3 +1,5 @@
+var markersArray=[];
+
 $(document).ready(function() {
 	parseHTML();
 
@@ -30,7 +32,6 @@ function parseHTML() {
 		// ecrire "
 		$(this).parents('p').remove();
 		return false;
-
 	});
 
 	// todo : support des boutons précédent/suivant
@@ -38,6 +39,8 @@ function parseHTML() {
 
 function viewChanged(obj) {
 	if(obj.redirect) document.location.href = obj.redirect;
+	if(obj.cache) $('#map_cache').removeClass('hidden');
+	else $('#map_cache').addClass('hidden');
 
 	if(obj.small_header) $('header').addClass('small');
 	else $('header').removeClass('small');
@@ -153,8 +156,80 @@ function launchGoogleMaps() {
 			}
 		]
 	};
-	var map = new google.maps.Map(document.getElementById("map_canvas"),
+
+	map = new google.maps.Map(document.getElementById("map_canvas"),
 			mapOptions);
+	google.maps.event.addListener(map, 'click', function(event) {
+	    placeMarker(event.latLng);
+	  });
+
+	$.ajax({
+		type: "GET",
+		url: 'services/getBestPlaces/',
+		data: {ajax: true},
+		success: function(bestPlaces){
+			if(typeof bestPlaces != 'Object') bestPlaces = JSON.parse(bestPlaces); //verifying if we have json content
+			window.bestPlaces = bestPlaces;
+		}
+	});
+}
+
+function placeMarker(location) {
+
+  clearOverlays();
+
+  var marker = new google.maps.Marker({
+      position: location,
+      map: map
+  });
+
+  // Add circle overlay and bind to marker
+  var circle = new google.maps.Circle({
+    map: map,
+    radius: 90000, // 90 km
+    fillColor: '#f53d19',
+    strokeWeight: 0
+  });
+
+  circle.bindTo('center', marker, 'position');
+
+  var bounds = circle.getBounds();
+  checkInCircle(bounds);
+
+  markersArray.push(marker);
+  markersArray.push(circle);
+
+  map.setZoom(8);
+  map.setCenter(location);
+
+}
+
+function clearOverlays() {
+  for (var i = 0; i < markersArray.length; i++ ) {
+    markersArray[i].setMap(null);
+  }
+}
+
+function checkInCircle(bound) {
+  for (var i = 0; i < bestPlaces.length; i++ ) {
+
+    var location = new google.maps.LatLng(bestPlaces[i].lat, bestPlaces[i].lng);
+    if(bound.contains(location)) {
+
+      var marker = new google.maps.Marker({
+          position: location,
+          map: map,
+          icon: 'public/css/images/marker.png',
+          customInfo: bestPlaces[i]
+      });
+
+	  google.maps.event.addListener(marker, 'click', function(event) {
+	    alert(JSON.stringify(this.customInfo));
+	  });
+
+      markersArray.push(marker);
+    }
+  }
 }
 
 function enterFullScreen(divId, buttonId) {
