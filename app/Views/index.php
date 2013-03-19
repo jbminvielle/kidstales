@@ -33,7 +33,7 @@
 						<nav><button href="register">Inscrire un groupe</button></nav>
 					</article>
 
-					<p><strong>Lire nos dispositions pour la sécurité des enfants</strong></p>
+					<p><strong onclick="openPopup('services/secure')">Lire nos dispositions pour la sécurité des enfants</strong></p>
 				<div>
 			</section>
 		</div>

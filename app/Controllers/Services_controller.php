@@ -122,7 +122,9 @@ class Services_controller{
 	function preKidsSpace() {
 		F3::set('object', array("page_content"=> Views::instance()->render('partials/preKidsSpace.php')));
 	}
-
+	function secure() {
+		F3::set('object', array("page_content"=> Views::instance()->render('partials/secure.php')));
+	}
 	// Adding automatically the view call
 	function afterRoute() {
 		F3::set('ajaxRequest',true);

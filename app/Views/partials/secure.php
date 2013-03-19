@@ -1,0 +1,3 @@
+<h1>Confidentialité</h1>
+<p>Nous nous engageons à ne divulguer aucune information confidentielle concernant les enfants et tous les utilisateurs de notre site internet. Les informations recueillies font l’objet d’un traitement informatique. Conformément à la loi « informatique et libertés » du 6 janvier 1978 modifiée en 2004, vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent, que vous pouvez exercer en vous adressant à SERVICE CLIENT KID'S TALE 29 boulevard Jean Baptiste 94100 Vincennes.</p>
+<p><a onclick="closePopup()">Fermer</a></p>
